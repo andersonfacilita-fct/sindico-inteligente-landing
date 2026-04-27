@@ -6,13 +6,16 @@ export interface Props {
 }
 
 const {
-  title = 'Negócio no Azul - Do caos ao controle em 7 dias | R$ 97',
-  description = 'Descubra em 7 dias para onde o dinheiro do seu negócio está indo - e comece a LUCRAR com o que você já vende. Ebook + Planilha + Guia por R$ 97.',
+  title = 'Síndico Inteligente — Seu condomínio realmente está seguro? | De R$ 249,90 por R$ 37',
+  description = 'Descubra em 15 minutos os 5 erros que destroem a segurança eletrônica do seu condomínio — e o método em 4 pilares para corrigir já. Ebook + Checklist + Comunidade VIP por R$ 37.',
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
-const PIXEL_ID = '1183885533721874';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const PIXEL_ID = '1640947780458981';
+const HOTMART_URL = 'https://pay.hotmart.com/C105540565G?checkoutMode=2';
+const PRODUCT_ID = 'C105540565G';
+const PRICE = 37.0;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicointeligente.facilitaportoes.shop').toString();
 ---
 
 <!doctype html>
@@ -20,9 +23,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0a1628" />
+    <meta name="theme-color" content="#0ea5e9" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Meta Domain Verification -->
+    <meta name="facebook-domain-verification" content="v9lrv4ckcdjz6bwbwake90a7ohe389" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -33,16 +39,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta name="twitter:image" content={ogImage} />
 
-    <!-- Fonts (preconnect + single stylesheet load) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,8 +56,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
       rel="stylesheet"
     />
 
+    <!-- Hotmart Checkout Widget (modal in-page) -->
+    <link rel="stylesheet" type="text/css" href="https://static.hotmart.com/css/hotmart-fb.min.css" />
+    <script src="https://static.hotmart.com/checkout/widget.min.js" defer></script>
+
     <!-- Meta Pixel -->
-    <script is:inline define:vars={{ PIXEL_ID }}>
+    <script is:inline define:vars={{ PIXEL_ID, PRICE, PRODUCT_ID }}>
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
@@ -72,29 +82,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
       window.fbq('init', PIXEL_ID);
       window.fbq('track', 'PageView');
 
-      // ViewContent after 10 seconds on page
       window.addEventListener('load', function () {
         setTimeout(function () {
           window.fbq('track', 'ViewContent', {
-            content_name: 'Negócio no Azul',
-            content_category: 'Ebook + Planilha',
-            content_ids: ['I105499750V'],
+            content_name: 'Síndico Inteligente',
+            content_category: 'Ebook + Checklist',
+            content_ids: [PRODUCT_ID],
             content_type: 'product',
-            value: 97.0,
+            value: PRICE,
             currency: 'BRL',
           });
         }, 10000);
       });
 
-      // InitiateCheckout on any buy button click
       window.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('[data-cta="checkout"]').forEach(function (btn) {
           btn.addEventListener('click', function () {
             window.fbq('track', 'InitiateCheckout', {
-              content_name: 'Negócio no Azul',
-              content_ids: ['I105499750V'],
+              content_name: 'Síndico Inteligente',
+              content_ids: [PRODUCT_ID],
               content_type: 'product',
-              value: 97.0,
+              value: PRICE,
               currency: 'BRL',
               num_items: 1,
             });
@@ -111,28 +119,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
       />
     </noscript>
 
-    <!-- Structured Data - Product -->
+    <!-- Structured Data -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Product',
-      name: 'Negócio no Azul',
-      description: 'Ebook + Planilha + Guia para você sair do caos financeiro do seu negócio em 7 dias usando o método A.Z.U.L.',
-      brand: { '@type': 'Brand', name: 'Anderson Cruz' },
+      name: 'Síndico Inteligente — Segurança Eletrônica',
+      description: 'Ebook + Checklist + Comunidade VIP. Descubra os 5 erros que destroem a segurança eletrônica do condomínio e o método em 4 pilares para corrigir.',
+      brand: { '@type': 'Brand', name: 'Facilita Distribuidora' },
       offers: {
         '@type': 'Offer',
-        price: '97.00',
+        price: '37.00',
         priceCurrency: 'BRL',
         availability: 'https://schema.org/InStock',
-        url: 'https://pay.hotmart.com/I105499750V?checkoutMode=2',
+        url: HOTMART_URL,
       },
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '4.9',
-        reviewCount: '127',
+        reviewCount: '184',
       },
     })} />
+
+    <!-- UTMify - Tracking de UTMs e atribuição de vendas -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
   </head>
-  <body class="bg-white text-navy-900 font-sans antialiased selection:bg-teal-200 selection:text-navy-900">
+  <body class="bg-white text-slate-800 font-sans antialiased selection:bg-orange-200 selection:text-orange-900">
     <slot />
 
     <style is:global>
@@ -146,20 +162,45 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
         font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
         letter-spacing: -0.02em;
       }
-      .gradient-navy {
-        background: linear-gradient(135deg, #0a1628 0%, #162d4a 50%, #0a1628 100%);
+      .gradient-sky {
+        background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #38bdf8 100%);
       }
-      .text-gradient-teal {
-        background: linear-gradient(90deg, #14b8a6 0%, #5eecc9 100%);
+      .gradient-sky-soft {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      }
+      .gradient-orange {
+        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      }
+      .text-gradient-sky {
+        background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .text-gradient-orange {
+        background: linear-gradient(90deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
       .btn-glow {
-        box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.35), 0 6px 10px -4px rgba(250, 204, 21, 0.15);
+        box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.45), 0 6px 10px -4px rgba(234, 88, 12, 0.25);
       }
       .btn-glow:hover {
-        box-shadow: 0 20px 35px -5px rgba(20, 184, 166, 0.5), 0 10px 15px -4px rgba(250, 204, 21, 0.25);
+        box-shadow: 0 20px 35px -5px rgba(249, 115, 22, 0.6), 0 10px 15px -4px rgba(234, 88, 12, 0.35);
+      }
+      .pulse-ring::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        background: rgba(249, 115, 22, 0.4);
+        z-index: -1;
+      }
+      @keyframes pulse-ring {
+        0%, 100% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.05); opacity: 0; }
       }
     </style>
   </body>
