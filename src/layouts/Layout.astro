@@ -7,11 +7,11 @@ export interface Props {
 
 const {
   title = 'Síndico Inteligente — Seu condomínio realmente está seguro? | De R$ 249,90 por R$ 37',
-  description = 'Descubra em 15 minutos os 5 erros que destroem a segurança eletrônica do seu condomínio — e o método em 4 pilares para corrigir já. Ebook + Checklist + Comunidade VIP por R$ 37.',
+  description = 'Descubra em 15 minutos os 5 erros que destroem a segurança eletrônica do seu condomínio — e o método em 4 pilares para corrigir já. Cartilha + Checklist + Comunidade VIP por R$ 37.',
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
-const PIXEL_ID = '1640947780458981';
+const PIXEL_ID = '1013792507659589';
 const HOTMART_URL = 'https://pay.hotmart.com/C105540565G?checkoutMode=2';
 const PRODUCT_ID = 'C105540565G';
 const PRICE = 37.0;
@@ -82,22 +82,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
       window.fbq('init', PIXEL_ID);
       window.fbq('track', 'PageView');
 
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          window.fbq('track', 'ViewContent', {
-            content_name: 'Síndico Inteligente',
-            content_category: 'Ebook + Checklist',
-            content_ids: [PRODUCT_ID],
-            content_type: 'product',
-            value: PRICE,
-            currency: 'BRL',
-          });
-        }, 10000);
+      // ViewContent imediato (sem delay) — Maxxima Fase 1 precisa de sinal rápido
+      window.fbq('track', 'ViewContent', {
+        content_name: 'Síndico Inteligente',
+        content_category: 'Cartilha + Checklist',
+        content_ids: [PRODUCT_ID],
+        content_type: 'product',
+        value: PRICE,
+        currency: 'BRL',
       });
 
+      // gera/recupera event_id estável por sessão para dedup com CAPI server-side
+      function siEventId() {
+        try {
+          var k = 'si_ic_evt';
+          var v = sessionStorage.getItem(k);
+          if (!v) {
+            v = 'ic_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+            sessionStorage.setItem(k, v);
+          }
+          return v;
+        } catch (e) {
+          return 'ic_' + Date.now();
+        }
+      }
+
+      // InitiateCheckout — usa sendBeacon antes do redirect pra não perder evento em mobile
       window.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('[data-cta="checkout"]').forEach(function (btn) {
           btn.addEventListener('click', function () {
+            var eventID = siEventId();
             window.fbq('track', 'InitiateCheckout', {
               content_name: 'Síndico Inteligente',
               content_ids: [PRODUCT_ID],
@@ -105,7 +119,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
               value: PRICE,
               currency: 'BRL',
               num_items: 1,
-            });
+            }, { eventID: eventID });
+
+            // Fallback sendBeacon
+            try {
+              if (navigator.sendBeacon) {
+                var body = new URLSearchParams({
+                  id: PIXEL_ID,
+                  ev: 'InitiateCheckout',
+                  cd: JSON.stringify({ value: PRICE, currency: 'BRL', content_ids: [PRODUCT_ID] }),
+                  eid: eventID,
+                });
+                navigator.sendBeacon('https://www.facebook.com/tr/?' + body.toString());
+              }
+            } catch (e) {}
           });
         });
       });
