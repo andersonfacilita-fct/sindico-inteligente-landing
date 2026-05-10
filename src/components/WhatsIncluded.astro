@@ -5,46 +5,46 @@ const items = [
   {
     icon: '📘',
     badge: 'Cartilha',
-    title: 'Negócio no Azul',
-    subtitle: '22 páginas',
-    description: 'Método A.Z.U.L. completo, com plano de 7 dias passo a passo. Linguagem direta, exemplos reais. Lê no celular, no ônibus, no almoço.',
+    title: 'Síndico Inteligente',
+    subtitle: 'leitura rápida',
+    description: 'O método em 4 pilares completo, em linguagem de síndico (não de técnico). Você lê em 15 minutos no celular e já sai aplicando.',
     features: [
-      '5 erros que matam o seu dinheiro',
-      'Plano de 7 dias com ações concretas',
-      'Caso real: Dona Marta (18 anos de padaria)',
-      'Os 3 números que você precisa saber',
+      '5 erros que destroem a segurança do prédio',
+      '4 pilares para blindar o condomínio',
+      'Os 3 ângulos cegos que quase todo prédio tem',
+      'O que perguntar pra empresa de CFTV',
     ],
   },
   {
-    icon: '📊',
-    badge: 'Planilha',
-    title: 'Planilha Financeira',
-    subtitle: '8 abas com cálculos automáticos',
-    description: 'Você só preenche entrada e saída. A planilha faz o resto: DRE, diagnóstico, ponto de equilíbrio e alertas inteligentes avisando onde o dinheiro está vazando.',
+    icon: '✅',
+    badge: 'Checklist',
+    title: 'Checklist 4 Pilares',
+    subtitle: 'inspeção em 15 min',
+    description: 'Vai com você na vistoria. Marca o que está OK e o que precisa ajustar — perímetro, câmeras, acesso, contingência. Vira relatório pra reunião do condomínio.',
     features: [
-      'Fluxo de caixa diário automatizado',
-      'DRE mensal - quanto você lucra de verdade',
-      'Diagnóstico: status do seu negócio',
-      'Alertas inteligentes nos números críticos',
+      'Roteiro de inspeção passo a passo',
+      'Pontos críticos por área do prédio',
+      'Tabela de prioridade (urgente / médio / leve)',
+      'Modelo de orçamento pra fornecedor',
     ],
     highlight: true,
   },
   {
-    icon: '📋',
-    badge: 'Guia',
-    title: 'Guia de Uso da Planilha',
-    subtitle: '14 páginas',
-    description: 'Aba por aba, com exemplos, dicas e atalhos. Você não precisa saber Excel. Tem alguém te pegando pela mão.',
+    icon: '🛡️',
+    badge: 'Bônus',
+    title: 'Guia de Contingência',
+    subtitle: 'plano B em emergências',
+    description: 'O que fazer quando faltar luz, quando a câmera parar de gravar, quando alguém invadir. Procedimento de 3 passos pra cada cenário, pronto pra colar na portaria.',
     features: [
-      'Passo a passo de cada aba',
-      'Exemplos preenchidos de negócios reais',
-      'Dicas para bater a meta em 30 dias',
-      'O que fazer se algo der errado',
+      'Falha de energia: 3 ações imediatas',
+      'CFTV fora do ar: como proceder',
+      'Tentativa de invasão: protocolo',
+      'Comunicado modelo pros moradores',
     ],
   },
 ];
 
-const WHATSAPP_GROUP = 'https://chat.whatsapp.com/BRGtbwulMsiEi5THnExsN5?mode=gi_t';
+const COMUNIDADE_URL = 'https://chat.whatsapp.com/BRGtbwulMsiEi5THnExsN5?mode=gi_t';
 ---
 
 <section class="bg-white py-16 sm:py-20 lg:py-24">
@@ -57,7 +57,7 @@ const WHATSAPP_GROUP = 'https://chat.whatsapp.com/BRGtbwulMsiEi5THnExsN5?mode=gi
         O que você <span class="text-gradient-teal">recebe</span>
       </h2>
       <p class="text-base sm:text-lg text-navy-700 max-w-2xl mx-auto">
-        3 materiais que se complementam para tirar seu negócio do vermelho sem você ter que virar economista.
+        3 materiais que se complementam pra você tirar a segurança do condomínio do amador sem precisar de técnico.
       </p>
     </div>
 
@@ -96,9 +96,9 @@ const WHATSAPP_GROUP = 'https://chat.whatsapp.com/BRGtbwulMsiEi5THnExsN5?mode=gi
       ))}
     </div>
 
-    <!-- BONUS: Grupo WhatsApp -->
+    <!-- BONUS: Comunidade VIP -->
     <div class="mt-10 sm:mt-14 max-w-3xl mx-auto">
-      <div class="relative rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white shadow-2xl overflow-hidden">
+      <div class="relative rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-teal-600 to-teal-800 text-white shadow-2xl overflow-hidden">
         <div class="absolute -top-8 -right-8 h-40 w-40 rounded-full bg-white/10 blur-2xl"></div>
         <div class="absolute -top-3 left-6 bg-gold-400 text-navy-900 text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow">
           🎁 Bônus exclusivo
@@ -107,34 +107,34 @@ const WHATSAPP_GROUP = 'https://chat.whatsapp.com/BRGtbwulMsiEi5THnExsN5?mode=gi
         <div class="relative grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-5 sm:gap-6 items-center mt-3">
           <div class="flex-shrink-0 mx-auto sm:mx-0">
             <div class="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
-              <svg class="h-10 w-10 sm:h-12 sm:w-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 01-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.42 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+              <svg class="h-10 w-10 sm:h-12 sm:w-12 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
             </div>
           </div>
 
           <div class="text-center sm:text-left">
             <h3 class="font-display text-xl sm:text-2xl font-extrabold mb-1">
-              Grupo VIP no WhatsApp
+              Comunidade de Síndicos
             </h3>
             <p class="text-sm sm:text-base text-white/95 leading-relaxed">
-              Comunidade exclusiva para tirar dúvidas direto comigo, receber dicas semanais e trocar experiências com outros empreendedores usando o método A.Z.U.L.
+              Grupo exclusivo de síndicos pra trocar experiências, comparar fornecedores, tirar dúvidas comigo e ver casos reais de outros prédios. Você não vai estar sozinho na vistoria.
             </p>
           </div>
 
           <div class="text-center sm:text-right">
             <div class="text-[11px] uppercase tracking-widest text-white/70 font-bold">Valor</div>
-            <div class="font-display text-2xl sm:text-3xl font-extrabold line-through opacity-80">R$ 150</div>
+            <div class="font-display text-2xl sm:text-3xl font-extrabold line-through opacity-80">R$ 90</div>
             <div class="text-xs font-bold uppercase tracking-wider text-gold-300">Grátis pra você</div>
           </div>
         </div>
 
         <div class="relative mt-5 flex flex-col sm:flex-row gap-3 items-stretch">
           <a
-            href={WHATSAPP_GROUP}
+            href={COMUNIDADE_URL}
             target="_blank"
             rel="noopener"
-            class="flex-1 inline-flex items-center justify-center gap-2 bg-white text-[#128C7E] hover:bg-gold-100 font-bold font-display text-sm sm:text-base uppercase tracking-wide px-5 py-3 rounded-xl shadow transition"
+            class="flex-1 inline-flex items-center justify-center gap-2 bg-white text-teal-700 hover:bg-gold-100 font-bold font-display text-sm sm:text-base uppercase tracking-wide px-5 py-3 rounded-xl shadow transition"
           >
-            Já quero entrar no grupo
+            Conhecer a comunidade
             <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
           </a>
         </div>
@@ -146,28 +146,28 @@ const WHATSAPP_GROUP = 'https://chat.whatsapp.com/BRGtbwulMsiEi5THnExsN5?mode=gi
       <h3 class="font-display text-lg sm:text-xl font-bold text-navy-900 mb-5 text-center">Valor real do pacote</h3>
       <div class="space-y-3 mb-5">
         <div class="flex items-baseline justify-between text-sm sm:text-base">
-          <span class="text-navy-700">Ebook "Negócio no Azul" (22 pgs)</span>
-          <span class="font-bold text-navy-900">R$ 97</span>
+          <span class="text-navy-700">Cartilha "Síndico Inteligente"</span>
+          <span class="font-bold text-navy-900">R$ 57</span>
         </div>
         <div class="flex items-baseline justify-between text-sm sm:text-base">
-          <span class="text-navy-700">Planilha Financeira (8 abas)</span>
-          <span class="font-bold text-navy-900">R$ 147</span>
+          <span class="text-navy-700">Checklist 4 Pilares</span>
+          <span class="font-bold text-navy-900">R$ 87</span>
         </div>
         <div class="flex items-baseline justify-between text-sm sm:text-base">
-          <span class="text-navy-700">Guia de Uso (14 pgs)</span>
+          <span class="text-navy-700">Guia de Contingência</span>
           <span class="font-bold text-navy-900">R$ 53</span>
         </div>
         <div class="flex items-baseline justify-between text-sm sm:text-base">
-          <span class="text-navy-700">Bônus: Grupo VIP WhatsApp</span>
-          <span class="font-bold text-navy-900">R$ 150</span>
+          <span class="text-navy-700">Bônus: Comunidade de Síndicos</span>
+          <span class="font-bold text-navy-900">R$ 90</span>
         </div>
         <div class="border-t border-navy-200 pt-3 flex items-baseline justify-between">
           <span class="font-display font-bold text-navy-900">Total</span>
-          <span class="font-display font-bold text-navy-900 line-through">R$ 447</span>
+          <span class="font-display font-bold text-navy-900 line-through">R$ 287</span>
         </div>
         <div class="flex items-baseline justify-between bg-teal-50 rounded-lg p-3 -mx-2">
           <span class="font-display font-extrabold text-teal-700 text-lg">Você paga hoje</span>
-          <span class="font-display font-extrabold text-teal-700 text-2xl sm:text-3xl">R$ 97</span>
+          <span class="font-display font-extrabold text-teal-700 text-2xl sm:text-3xl">R$ 37</span>
         </div>
       </div>
       <div class="text-center">
