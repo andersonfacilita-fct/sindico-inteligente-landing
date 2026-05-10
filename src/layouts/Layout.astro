@@ -6,16 +6,15 @@ export interface Props {
 }
 
 const {
-  title = 'Síndico Inteligente — Seu condomínio realmente está seguro? | De R$ 197 por R$ 37',
-  description = 'Descubra em 15 minutos os 5 erros que destroem a segurança eletrônica do seu condomínio — e o método em 4 pilares para corrigir já. Cartilha + Checklist + Comunidade VIP por R$ 37.',
+  title = 'Síndico Inteligente - Modernize seu condomínio em 7 dias | R$ 67',
+  description = 'O guia prático que mostra como modernizar a segurança do seu condomínio sem cair em ciladas de fornecedor. Ebook + 2 bônus por R$ 67.',
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
 const PIXEL_ID = '1013792507659589';
-const HOTMART_URL = 'https://pay.hotmart.com/C105540565G?checkoutMode=2';
 const PRODUCT_ID = 'C105540565G';
-const PRICE = 37.0;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicointeligente.facilitaportoes.shop').toString();
+const PRICE = 67.0;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -23,12 +22,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="theme-color" content="#0a1628" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- Meta Domain Verification -->
-    <meta name="facebook-domain-verification" content="v9lrv4ckcdjz6bwbwake90a7ohe389" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -39,16 +35,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
 
-    <!-- Fonts -->
+    <!-- Fonts (preconnect + single stylesheet load) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -56,12 +52,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
       rel="stylesheet"
     />
 
-    <!-- Hotmart Checkout Widget (modal in-page) -->
-    <link rel="stylesheet" type="text/css" href="https://static.hotmart.com/css/hotmart-fb.min.css" />
-    <script src="https://static.hotmart.com/checkout/widget.min.js" defer></script>
-
     <!-- Meta Pixel -->
-    <script is:inline define:vars={{ PIXEL_ID, PRICE, PRODUCT_ID }}>
+    <script is:inline define:vars={{ PIXEL_ID }}>
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
@@ -85,7 +77,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
       // ViewContent imediato (sem delay) — Maxxima Fase 1 precisa de sinal rápido
       window.fbq('track', 'ViewContent', {
         content_name: 'Síndico Inteligente',
-        content_category: 'Cartilha + Checklist',
+        content_category: 'Ebook + Apresentação + Checklist',
         content_ids: [PRODUCT_ID],
         content_type: 'product',
         value: PRICE,
@@ -121,7 +113,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
               num_items: 1,
             }, { eventID: eventID });
 
-            // Fallback sendBeacon
             try {
               if (navigator.sendBeacon) {
                 var body = new URLSearchParams({
@@ -146,24 +137,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
       />
     </noscript>
 
-    <!-- Structured Data -->
+    <!-- Structured Data - Product -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Product',
-      name: 'Síndico Inteligente — Segurança Eletrônica',
-      description: 'Ebook + Checklist + Comunidade VIP. Descubra os 5 erros que destroem a segurança eletrônica do condomínio e o método em 4 pilares para corrigir.',
-      brand: { '@type': 'Brand', name: 'Facilita Distribuidora' },
+      name: 'Síndico Inteligente',
+      description: 'Guia prático com 8 capítulos + 2 bônus para modernizar a segurança eletrônica do seu condomínio em 7 dias, sem cair em ciladas de fornecedor.',
+      brand: { '@type': 'Brand', name: 'Anderson Cruz' },
       offers: {
         '@type': 'Offer',
-        price: '37.00',
+        price: '67.00',
         priceCurrency: 'BRL',
         availability: 'https://schema.org/InStock',
-        url: HOTMART_URL,
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '184',
+        url: 'https://pay.hotmart.com/C105540565G?checkoutMode=2',
       },
     })} />
 
@@ -175,7 +161,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
       defer
     ></script>
 
-    <!-- UTMify Pixel — eventos Initiate Checkout/Purchase server-side (compartilhado dashboard "Principal") -->
+    <!-- UTMify Pixel — eventos Initiate Checkout/Purchase server-side -->
     <script is:inline>
       window.pixelId = "69eeb3dfa24656f95784cafc";
       var a = document.createElement("script");
@@ -185,7 +171,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
       document.head.appendChild(a);
     </script>
   </head>
-  <body class="bg-white text-slate-800 font-sans antialiased selection:bg-orange-200 selection:text-orange-900">
+  <body class="bg-white text-navy-900 font-sans antialiased selection:bg-teal-200 selection:text-navy-900">
     <slot />
 
     <style is:global>
@@ -199,45 +185,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sindicoi
         font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
         letter-spacing: -0.02em;
       }
-      .gradient-sky {
-        background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #38bdf8 100%);
+      .gradient-navy {
+        background: linear-gradient(135deg, #0a1628 0%, #162d4a 50%, #0a1628 100%);
       }
-      .gradient-sky-soft {
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-      }
-      .gradient-orange {
-        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-      }
-      .text-gradient-sky {
-        background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .text-gradient-orange {
-        background: linear-gradient(90deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
+      .text-gradient-teal {
+        background: linear-gradient(90deg, #14b8a6 0%, #5eecc9 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
       .btn-glow {
-        box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.45), 0 6px 10px -4px rgba(234, 88, 12, 0.25);
+        box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.35), 0 6px 10px -4px rgba(250, 204, 21, 0.15);
       }
       .btn-glow:hover {
-        box-shadow: 0 20px 35px -5px rgba(249, 115, 22, 0.6), 0 10px 15px -4px rgba(234, 88, 12, 0.35);
-      }
-      .pulse-ring::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        background: rgba(249, 115, 22, 0.4);
-        z-index: -1;
-      }
-      @keyframes pulse-ring {
-        0%, 100% { transform: scale(1); opacity: 0.7; }
-        50% { transform: scale(1.05); opacity: 0; }
+        box-shadow: 0 20px 35px -5px rgba(20, 184, 166, 0.5), 0 10px 15px -4px rgba(250, 204, 21, 0.25);
       }
     </style>
   </body>

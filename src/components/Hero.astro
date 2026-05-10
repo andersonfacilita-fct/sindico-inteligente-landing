@@ -18,21 +18,21 @@ import CTAButton from './CTAButton.astro';
             <span class="absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75 animate-ping"></span>
             <span class="relative inline-flex h-2 w-2 rounded-full bg-teal-400"></span>
           </span>
-          MÉTODO 4 PILARES · CHECKLIST EM 15 MIN
+          GUIA SÍNDICO INTELIGENTE - DIAGNÓSTICO EM 7 DIAS
         </div>
 
         <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] mb-5">
-          Seu condomínio está realmente <span class="text-gold-400">seguro</span>?
+          Em <span class="text-gold-400">7 dias</span> você sabe exatamente o que mudar no seu condomínio — <span class="text-gold-400">mesmo que nunca tenha entendido nada de CFTV</span>
         </h1>
 
         <p class="text-base sm:text-lg lg:text-xl text-navy-100 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-          Em <strong class="text-teal-300">15 minutos</strong> você descobre os <strong class="text-teal-300">5 erros</strong> que destroem a segurança eletrônica do seu prédio — e o método em <strong class="text-teal-300">4 pilares</strong> pra corrigir já. Sem técnico, sem orçamento caro.
+          Sem jargão técnico. Sem orçamento inflado. Você lê o guia, aplica o checklist e descobre <strong class="text-teal-300">o que está vulnerável agora</strong> e o que priorizar nos próximos 90 dias.
         </p>
 
         <div class="flex flex-col sm:items-start items-stretch gap-4">
           <CTAButton size="xl" />
           <p class="text-sm text-navy-200 text-center sm:text-left">
-            <span class="line-through text-navy-300">De R$ 197</span> por apenas <strong class="text-gold-400">R$ 37</strong> à vista (ou 12x no cartão)
+            <span class="line-through text-navy-300">De R$ 197</span> por apenas <strong class="text-gold-400">R$ 67</strong> à vista (ou 12x de R$ 6,90)
           </p>
         </div>
 
@@ -48,7 +48,7 @@ import CTAButton from './CTAButton.astro';
           </div>
           <div class="flex items-center gap-2">
             <svg class="h-5 w-5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-            Suporte por e-mail
+            Suporte via WhatsApp
           </div>
         </div>
       </div>
@@ -61,18 +61,18 @@ import CTAButton from './CTAButton.astro';
 
           <!-- Product stack mockup -->
           <div class="relative">
-            <!-- Cartilha "cover" -->
+            <!-- Ebook "cover" -->
             <div class="relative mx-auto w-64 sm:w-80 lg:w-96 aspect-[3/4] rounded-2xl bg-gradient-to-br from-navy-700 via-navy-800 to-navy-950 shadow-2xl border border-teal-500/20 rotate-[-6deg] hover:rotate-0 transition-transform duration-500 overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-tr from-teal-500/10 via-transparent to-gold-400/10"></div>
               <div class="relative h-full p-7 sm:p-9 flex flex-col justify-between">
                 <div>
-                  <div class="text-xs font-bold text-teal-300 uppercase tracking-widest mb-2">Cartilha + Checklist + Comunidade</div>
+                  <div class="text-xs font-bold text-teal-300 uppercase tracking-widest mb-2">Ebook + Apresentação + Checklist</div>
                   <div class="h-0.5 w-12 bg-gold-400 mb-6"></div>
                   <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                     Síndico<br /><span class="text-gradient-teal">Inteligente</span>
                   </h3>
                   <p class="text-xs sm:text-sm text-navy-200 mt-4 leading-relaxed">
-                    Da insegurança ao controle em 15 minutos com o método 4 pilares.
+                    O guia da segurança eletrônica que realmente protege o seu condomínio.
                   </p>
                 </div>
                 <div>
@@ -90,18 +90,16 @@ import CTAButton from './CTAButton.astro';
                 <div class="h-2 w-2 rounded-full bg-white/30"></div>
                 <div class="ml-auto text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-wide">Checklist</div>
               </div>
-              <div class="p-2 sm:p-3 space-y-2">
-                {['Câmeras posicionadas', 'Gravação 30 dias', 'Cerca elétrica ativa', 'Acesso visitantes', 'Plano de contingência'].map((item, i) => (
+              <div class="p-2 sm:p-3 space-y-1.5">
+                {[...Array(5)].map((_, i) => (
                   <div class="flex items-center gap-1.5">
-                    <div class={`h-3 w-3 rounded border flex items-center justify-center flex-shrink-0 ${i < 3 ? 'bg-teal-500 border-teal-600' : 'bg-white border-navy-300'}`}>
-                      {i < 3 && <svg class="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>}
-                    </div>
-                    <div class="text-[9px] sm:text-[10px] text-navy-700 leading-tight">{item}</div>
+                    <div class={`h-3 w-3 rounded border-2 ${i < 3 ? 'bg-teal-500 border-teal-500' : 'border-navy-300'}`}></div>
+                    <div class={`h-2 flex-1 rounded ${i < 3 ? 'bg-teal-200' : 'bg-navy-100'}`}></div>
                   </div>
                 ))}
                 <div class="mt-2 pt-2 border-t border-navy-100">
-                  <div class="text-[9px] sm:text-[10px] font-bold text-teal-700 uppercase">Pontos</div>
-                  <div class="text-sm sm:text-base font-extrabold text-teal-600">3 / 5</div>
+                  <div class="text-[9px] sm:text-[10px] font-bold text-teal-700 uppercase">Diagnóstico</div>
+                  <div class="text-sm sm:text-base font-extrabold text-teal-600">30 min</div>
                 </div>
               </div>
             </div>
@@ -110,7 +108,7 @@ import CTAButton from './CTAButton.astro';
 
         <!-- Float badge -->
         <div class="hidden sm:block absolute -top-4 -left-4 lg:-left-12 rotate-[-8deg] bg-gold-400 text-navy-900 font-display font-extrabold text-sm px-4 py-2 rounded-full shadow-xl">
-          15 min<br /><span class="text-xs font-semibold">leitura rápida</span>
+          62% das câmeras<br /><span class="text-xs font-semibold">com defeito invisível</span>
         </div>
       </div>
     </div>

@@ -4,42 +4,42 @@ import CTAButton from './CTAButton.astro';
 const items = [
   {
     icon: '📘',
-    badge: 'Cartilha',
+    badge: 'Ebook',
     title: 'Síndico Inteligente',
-    subtitle: 'leitura rápida',
-    description: 'O método em 4 pilares completo, em linguagem de síndico (não de técnico). Você lê em 15 minutos no celular e já sai aplicando.',
+    subtitle: '50-70 páginas',
+    description: 'Guia completo dos 4 Pilares + 5 erros que destroem a segurança + LGPD passo a passo + checklist de 30 minutos. Linguagem direta, sem jargão.',
     features: [
-      '5 erros que destroem a segurança do prédio',
-      '4 pilares para blindar o condomínio',
-      'Os 3 ângulos cegos que quase todo prédio tem',
-      'O que perguntar pra empresa de CFTV',
+      '5 erros que destroem a segurança eletrônica',
+      '4 Pilares da segurança moderna',
+      'CFTV, controle de acesso, garagem e LGPD',
+      'Como comprar 30-50% mais barato direto da fábrica',
     ],
   },
   {
-    icon: '✅',
-    badge: 'Checklist',
-    title: 'Checklist 4 Pilares',
-    subtitle: 'inspeção em 15 min',
-    description: 'Vai com você na vistoria. Marca o que está OK e o que precisa ajustar — perímetro, câmeras, acesso, contingência. Vira relatório pra reunião do condomínio.',
+    icon: '🎤',
+    badge: 'Apresentação Assembleia',
+    title: 'Slides editáveis',
+    subtitle: 'PowerPoint + PDF',
+    description: 'Apresentação pronta pra você levar pra próxima assembleia e convencer os moradores a aprovar a modernização sem ter que estudar 3 meses.',
     features: [
-      'Roteiro de inspeção passo a passo',
-      'Pontos críticos por área do prédio',
-      'Tabela de prioridade (urgente / médio / leve)',
-      'Modelo de orçamento pra fornecedor',
+      'Slides editáveis (PowerPoint e PDF)',
+      'Roteiro pronto pra apresentar em 15 min',
+      'Comparativo "antes x depois" com números',
+      'Argumentos pra responder objeções',
     ],
     highlight: true,
   },
   {
-    icon: '🛡️',
-    badge: 'Bônus',
-    title: 'Guia de Contingência',
-    subtitle: 'plano B em emergências',
-    description: 'O que fazer quando faltar luz, quando a câmera parar de gravar, quando alguém invadir. Procedimento de 3 passos pra cada cenário, pronto pra colar na portaria.',
+    icon: '✅',
+    badge: 'Checklist 30 min',
+    title: 'Diagnóstico do Condomínio',
+    subtitle: '22 pontos críticos',
+    description: 'Você percorre as áreas do condomínio com o checklist na mão e em 30 minutos sabe quantas vulnerabilidades existem - e qual é a mais urgente.',
     features: [
-      'Falha de energia: 3 ações imediatas',
-      'CFTV fora do ar: como proceder',
-      'Tentativa de invasão: protocolo',
-      'Comunicado modelo pros moradores',
+      '22 pontos auditados (CFTV, acesso, garagem, LGPD)',
+      'Resultado classificado: crítico, típico ou acima da média',
+      'Próximos 3 passos personalizados',
+      'Pode imprimir e levar pro vistoria',
     ],
   },
 ];
@@ -56,7 +56,7 @@ const items = [
         O que você <span class="text-gradient-teal">recebe</span>
       </h2>
       <p class="text-base sm:text-lg text-navy-700 max-w-2xl mx-auto">
-        3 materiais que se complementam pra você tirar a segurança do condomínio do amador sem precisar de técnico.
+        3 materiais que se complementam pra você diagnosticar, decidir e convencer a assembleia - sem virar especialista em segurança eletrônica.
       </p>
     </div>
 
@@ -95,9 +95,9 @@ const items = [
       ))}
     </div>
 
-    <!-- BONUS: Comunidade VIP -->
+    <!-- BONUS: Grupo WhatsApp -->
     <div class="mt-10 sm:mt-14 max-w-3xl mx-auto">
-      <div class="relative rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-teal-600 to-teal-800 text-white shadow-2xl overflow-hidden">
+      <div class="relative rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white shadow-2xl overflow-hidden">
         <div class="absolute -top-8 -right-8 h-40 w-40 rounded-full bg-white/10 blur-2xl"></div>
         <div class="absolute -top-3 left-6 bg-gold-400 text-navy-900 text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow">
           🎁 Bônus exclusivo
@@ -106,22 +106,22 @@ const items = [
         <div class="relative grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-5 sm:gap-6 items-center mt-3">
           <div class="flex-shrink-0 mx-auto sm:mx-0">
             <div class="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
-              <svg class="h-10 w-10 sm:h-12 sm:w-12 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+              <svg class="h-10 w-10 sm:h-12 sm:w-12 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 01-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.42 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
             </div>
           </div>
 
           <div class="text-center sm:text-left">
             <h3 class="font-display text-xl sm:text-2xl font-extrabold mb-1">
-              Comunidade de Síndicos
+              Comunidade de Síndicos Modernos
             </h3>
             <p class="text-sm sm:text-base text-white/95 leading-relaxed">
-              Grupo exclusivo de síndicos pra trocar experiências, comparar fornecedores, tirar dúvidas comigo e ver casos reais de outros prédios. Você não vai estar sozinho na vistoria.
+              Grupo exclusivo no WhatsApp pra trocar experiência com outros síndicos que estão modernizando o condomínio, tirar dúvida direto comigo e receber alertas sobre LGPD e novas tecnologias.
             </p>
           </div>
 
           <div class="text-center sm:text-right">
             <div class="text-[11px] uppercase tracking-widest text-white/70 font-bold">Valor</div>
-            <div class="font-display text-2xl sm:text-3xl font-extrabold line-through opacity-80">R$ 90</div>
+            <div class="font-display text-2xl sm:text-3xl font-extrabold line-through opacity-80">R$ 197</div>
             <div class="text-xs font-bold uppercase tracking-wider text-gold-300">Grátis pra você</div>
           </div>
         </div>
@@ -139,28 +139,28 @@ const items = [
       <h3 class="font-display text-lg sm:text-xl font-bold text-navy-900 mb-5 text-center">Valor real do pacote</h3>
       <div class="space-y-3 mb-5">
         <div class="flex items-baseline justify-between text-sm sm:text-base">
-          <span class="text-navy-700">Cartilha "Síndico Inteligente"</span>
-          <span class="font-bold text-navy-900">R$ 57</span>
+          <span class="text-navy-700">Ebook "Síndico Inteligente"</span>
+          <span class="font-bold text-navy-900">R$ 197</span>
         </div>
         <div class="flex items-baseline justify-between text-sm sm:text-base">
-          <span class="text-navy-700">Checklist 4 Pilares</span>
-          <span class="font-bold text-navy-900">R$ 87</span>
+          <span class="text-navy-700">Apresentação Assembleia (slides)</span>
+          <span class="font-bold text-navy-900">R$ 247</span>
         </div>
         <div class="flex items-baseline justify-between text-sm sm:text-base">
-          <span class="text-navy-700">Guia de Contingência</span>
-          <span class="font-bold text-navy-900">R$ 53</span>
+          <span class="text-navy-700">Checklist 30 minutos</span>
+          <span class="font-bold text-navy-900">R$ 97</span>
         </div>
         <div class="flex items-baseline justify-between text-sm sm:text-base">
           <span class="text-navy-700">Bônus: Comunidade de Síndicos</span>
-          <span class="font-bold text-navy-900">R$ 90</span>
+          <span class="font-bold text-navy-900">R$ 197</span>
         </div>
         <div class="border-t border-navy-200 pt-3 flex items-baseline justify-between">
           <span class="font-display font-bold text-navy-900">Total</span>
-          <span class="font-display font-bold text-navy-900 line-through">R$ 287</span>
+          <span class="font-display font-bold text-navy-900 line-through">R$ 738</span>
         </div>
         <div class="flex items-baseline justify-between bg-teal-50 rounded-lg p-3 -mx-2">
           <span class="font-display font-extrabold text-teal-700 text-lg">Você paga hoje</span>
-          <span class="font-display font-extrabold text-teal-700 text-2xl sm:text-3xl">R$ 37</span>
+          <span class="font-display font-extrabold text-teal-700 text-2xl sm:text-3xl">R$ 67</span>
         </div>
       </div>
       <div class="text-center">

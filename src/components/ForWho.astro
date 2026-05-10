@@ -1,41 +1,50 @@
 ---
-const items = [
-  'Você é síndico, subsíndico ou conselheiro de prédio residencial',
-  'Tem entre 8 e 100 unidades pra zelar',
-  'Não sabe se as câmeras pegam tudo o que deveriam',
-  'Acha que paga caro pra empresa de CFTV e ainda fica inseguro',
-  'Quer um diagnóstico próprio, sem depender 100% do técnico',
+const personas = [
+  {
+    icon: '🏠',
+    title: 'Síndico morador eleito',
+    description: 'Você é morador e foi eleito síndico - sem ter cursado nada de segurança eletrônica. Quer entender o que está pagando e o que cobrar dos fornecedores, sem virar especialista.',
+  },
+  {
+    icon: '💼',
+    title: 'Síndico profissional',
+    description: 'Já gere vários condomínios e quer uma ferramenta de venda pra mostrar pros conselhos por que vale a pena modernizar - com argumento técnico e visual de assembleia pronto.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Conselheiro / Subsíndico',
+    description: 'Você fiscaliza a gestão e quer cobrar do síndico atual. O guia te dá os 22 pontos pra auditar e descobrir onde o condomínio está vulnerável - mesmo sem ser técnico.',
+  },
 ];
 ---
 
 <section class="bg-white py-16 sm:py-20 lg:py-24">
-  <div class="mx-auto max-w-4xl px-5">
+  <div class="mx-auto max-w-5xl px-5">
     <div class="text-center mb-10 sm:mb-12">
       <div class="inline-block text-xs font-bold text-teal-600 uppercase tracking-widest mb-3">
         Pra quem é
       </div>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 leading-tight">
-        Feito pra você <span class="text-teal-600">se...</span>
+        Feito pra <span class="text-teal-600">3 perfis</span>
       </h2>
     </div>
 
-    <div class="bg-gradient-to-br from-navy-50 to-white rounded-2xl shadow-lg border border-navy-100 p-6 sm:p-10">
-      <ul class="space-y-4 sm:space-y-5">
-        {items.map((item) => (
-          <li class="flex items-start gap-4">
-            <div class="flex-shrink-0 mt-0.5">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-teal-500 text-white shadow-md">
-                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-              </div>
-            </div>
-            <p class="text-base sm:text-lg text-navy-800 leading-relaxed pt-0.5 font-medium">{item}</p>
-          </li>
-        ))}
-      </ul>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+      {personas.map((persona) => (
+        <div class="bg-gradient-to-br from-navy-50 to-white rounded-2xl shadow-lg border border-navy-100 p-6 sm:p-7 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+          <div class="text-5xl mb-4">{persona.icon}</div>
+          <h3 class="font-display text-xl sm:text-2xl font-extrabold text-navy-900 mb-3">
+            {persona.title}
+          </h3>
+          <p class="text-sm sm:text-base text-navy-700 leading-relaxed">
+            {persona.description}
+          </p>
+        </div>
+      ))}
     </div>
 
-    <p class="text-center text-sm sm:text-base text-navy-600 mt-6 italic">
-      Se você se reconheceu em <strong class="text-navy-900 not-italic">3 ou mais</strong>, esse material foi feito pro seu prédio.
+    <p class="text-center text-sm sm:text-base text-navy-600 mt-8 italic">
+      Se você se reconheceu em <strong class="text-navy-900 not-italic">qualquer um dos perfis</strong>, esse material vai destravar a próxima decisão de segurança do seu condomínio.
     </p>
   </div>
 </section>

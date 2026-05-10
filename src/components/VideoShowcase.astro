@@ -1,7 +1,7 @@
 ---
-// Quando tiver vídeo SI gravado, preencher VIDEO_ID com o ID do YouTube/Vimeo.
-// Vazio = mostra apenas o card de método (sem iframe).
+// TODO Anderson: trocar pelo ID real do vídeo no YouTube quando gravar a apresentação
 const VIDEO_ID = '';
+const HAS_VIDEO = false;
 ---
 
 <section class="relative overflow-hidden bg-navy-900 py-16 sm:py-20 lg:py-24">
@@ -13,22 +13,22 @@ const VIDEO_ID = '';
   <div class="relative mx-auto max-w-5xl px-5">
     <div class="text-center mb-10 sm:mb-12">
       <div class="inline-block text-xs font-bold text-teal-400 uppercase tracking-widest mb-3">
-        Em 1 minuto
+        Veja antes de comprar
       </div>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
-        Entenda o método <span class="text-gradient-teal">4 Pilares</span> em menos de 1 min
+        Conheça os <span class="text-gradient-teal">4 Pilares</span> em menos de 1 min
       </h2>
       <p class="text-base sm:text-lg text-navy-200 max-w-2xl mx-auto">
-        Veja por que a maioria dos condomínios paga caro em segurança eletrônica e ainda fica vulnerável - e como inverter esse jogo em 4 passos.
+        Um trecho do guia: por que a maioria dos condomínios paga caro por equipamento e mesmo assim continua vulnerável - e como mudar isso em 7 dias.
       </p>
     </div>
 
-    {VIDEO_ID && (
+    {HAS_VIDEO ? (
       <div class="mx-auto max-w-sm">
         <div class="relative rounded-3xl overflow-hidden shadow-2xl ring-4 ring-teal-500/30 bg-black" style="aspect-ratio: 9/16;">
           <iframe
             src={`https://www.youtube.com/embed/${VIDEO_ID}?rel=0&modestbranding=1&playsinline=1`}
-            title="Síndico Inteligente — Método 4 Pilares"
+            title="Síndico Inteligente - 4 Pilares"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -37,23 +37,17 @@ const VIDEO_ID = '';
           ></iframe>
         </div>
       </div>
-    )}
-
-    {!VIDEO_ID && (
-      <div class="mx-auto max-w-2xl bg-gradient-to-br from-navy-800 to-navy-950 rounded-3xl border border-teal-500/20 p-8 sm:p-10">
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          {[
-            { n: '01', t: 'Diagnóstico', d: '5 erros mais comuns' },
-            { n: '02', t: 'Câmeras', d: 'posição + retenção' },
-            { n: '03', t: 'Acesso', d: 'visitantes + PCD' },
-            { n: '04', t: 'Plano B', d: 'falha de energia' },
-          ].map((p) => (
-            <div class="bg-navy-700/50 rounded-2xl p-4 border border-teal-500/10">
-              <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-2 font-display">{p.n}</div>
-              <div class="font-bold text-white text-sm">{p.t}</div>
-              <div class="text-xs text-navy-300 mt-1">{p.d}</div>
-            </div>
-          ))}
+    ) : (
+      <!-- Placeholder até gravarmos o vídeo -->
+      <div class="mx-auto max-w-2xl">
+        <div class="bg-gradient-to-br from-navy-800 to-navy-950 border border-teal-500/20 rounded-3xl p-8 sm:p-10 text-center shadow-2xl">
+          <div class="text-6xl mb-4">🎥</div>
+          <h3 class="font-display text-xl sm:text-2xl font-extrabold text-white mb-3">
+            Vídeo de apresentação em produção
+          </h3>
+          <p class="text-sm sm:text-base text-navy-200 leading-relaxed">
+            Em breve: trecho gratuito do guia. Enquanto isso, role pra baixo e veja o conteúdo completo do "Síndico Inteligente".
+          </p>
         </div>
       </div>
     )}
@@ -62,15 +56,13 @@ const VIDEO_ID = '';
       <a
         href="https://pay.hotmart.com/C105540565G?checkoutMode=2"
         data-cta="checkout"
-        target="_blank"
-        rel="noopener"
         class="inline-flex items-center gap-2 bg-gradient-to-br from-teal-500 to-teal-700 text-white font-bold font-display text-sm sm:text-base uppercase tracking-wide px-8 py-4 rounded-xl btn-glow hover:scale-105 transition-transform"
       >
-        Quero proteger meu condomínio por R$ 37
+        Quero modernizar meu condomínio por R$ 67
         <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
       </a>
       <p class="text-sm text-navy-200 mt-3">
-        <span class="line-through text-navy-300">R$ 197</span> hoje por <strong class="text-gold-400">R$ 37</strong> - 12x no cartão
+        <span class="line-through text-navy-300">R$ 197</span> hoje por <strong class="text-gold-400">R$ 67</strong> - 12x de R$ 6,90
       </p>
     </div>
   </div>

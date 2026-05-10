@@ -1,9 +1,9 @@
 ---
 const rows = [
-  { label: 'Pontos cegos de câmera', before: '7 ângulos', after: '0 ângulos', delta: '-100%', highlight: true },
-  { label: 'Retenção de gravação', before: '5 dias', after: '30 dias', delta: '+500%' },
-  { label: 'Tempo de auditoria mensal', before: '4 horas', after: '15 min', delta: '-94%' },
-  { label: 'Plano de contingência', before: 'Não tinha', after: 'Documentado', delta: 'OK' },
+  { label: 'Câmeras funcionais 24/7', before: '20%', after: '100%', delta: '+400%', highlight: true },
+  { label: 'Tempo fechamento portão', before: '12 seg', after: '4 seg', delta: '-66%' },
+  { label: 'Cadastro de acessos auditado', before: 'Nunca', after: 'Semestral', delta: 'OK' },
+  { label: 'Invasões em 18 meses', before: '1/ano', after: 'Zero', delta: '-100%' },
 ];
 ---
 
@@ -15,14 +15,17 @@ const rows = [
   <div class="relative mx-auto max-w-5xl px-5">
     <div class="text-center mb-10 sm:mb-14">
       <div class="inline-block text-xs font-bold text-gold-400 uppercase tracking-widest mb-3">
-        Caso real
+        Caso ilustrativo
       </div>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
-        De <span class="text-red-400">7 pontos cegos</span> para <span class="text-gold-400">0 vulnerabilidades</span><br class="hidden sm:block" />
-        em 1 final de semana
+        De 1 invasão por ano para <span class="text-gold-400">zero em 18 meses</span><br class="hidden sm:block" />
+        em 60 dias de aplicação
       </h2>
       <p class="text-base sm:text-lg text-navy-100 max-w-2xl mx-auto">
-        Sem trocar todas as câmeras. Sem orçamento de R$ 30 mil. Só aplicando o método 4 Pilares com a empresa de CFTV que já atende o prédio.
+        Sem trocar a equipe da portaria. Sem dobrar o orçamento de segurança. Sem revolução. Só aplicando os 4 Pilares na ordem certa.
+      </p>
+      <p class="text-xs text-navy-300 mt-3 italic">
+        Exemplo ilustrativo baseado em padrões observados no setor — dados reais alterados pra preservar anonimato.
       </p>
     </div>
 
@@ -31,15 +34,15 @@ const rows = [
       <svg class="absolute top-4 left-4 h-10 w-10 text-teal-500/30" fill="currentColor" viewBox="0 0 24 24"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006C6.214 15.659 7.097 16 8 16c1.657 0 3-1.343 3-3s-1.343-3-3-3zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006C17.214 15.659 18.097 16 19 16c1.657 0 3-1.343 3-3s-1.343-3-3-3z"/></svg>
       <blockquote class="pl-14 sm:pl-16">
         <p class="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-snug mb-4">
-          "Eu achava que tinha câmera. Tinha 8. Aprendi que tinha 7 pontos cegos."
+          "Anderson, a gente tinha 8 câmeras. Mas quando precisei rever a gravação da invasão, descobri que 6 estavam com defeito há semanas."
         </p>
         <footer class="flex items-center gap-3">
           <div class="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-gold-400 to-gold-500 text-navy-900 font-display font-extrabold text-lg">
-            R
+            E
           </div>
           <div>
-            <div class="font-bold text-white">Roberto S.</div>
-            <div class="text-sm text-navy-200">Síndico · prédio com 32 unidades</div>
+            <div class="font-bold text-white">Edifício Solar (anônimo)</div>
+            <div class="text-sm text-navy-200">Síndico, condomínio com 90 unidades</div>
           </div>
         </footer>
       </blockquote>
@@ -66,9 +69,9 @@ const rows = [
     <!-- Highlight -->
     <div class="mt-8 text-center">
       <div class="inline-block bg-gradient-to-br from-gold-400 to-gold-500 text-navy-900 rounded-2xl p-5 sm:p-6 shadow-2xl">
-        <div class="text-xs sm:text-sm font-bold uppercase tracking-widest mb-1">Tempo total da intervenção</div>
-        <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">2 finais de semana</div>
-        <div class="text-xs sm:text-sm mt-2 font-semibold">com a mesma empresa de CFTV que já atendia o prédio</div>
+        <div class="text-xs sm:text-sm font-bold uppercase tracking-widest mb-1">Bônus financeiro</div>
+        <div class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">- 30% de luz/mês</div>
+        <div class="text-xs sm:text-sm mt-2 font-semibold">trocando equipamento antigo por LED + sensor</div>
       </div>
     </div>
   </div>
