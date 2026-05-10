@@ -6,14 +6,14 @@ export interface Props {
 }
 
 const {
-  title = 'Síndico Inteligente - Modernize seu condomínio em 7 dias | R$ 67',
-  description = 'O guia prático que mostra como modernizar a segurança do seu condomínio sem cair em ciladas de fornecedor. Ebook + 2 bônus por R$ 67.',
+  title = 'Síndico Inteligente - Modernize seu condomínio em 7 dias | R$ 37',
+  description = 'O guia prático que mostra como modernizar a segurança do seu condomínio sem cair em ciladas de fornecedor. Ebook + 2 bônus por R$ 37.',
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
 const PIXEL_ID = '1013792507659589';
 const PRODUCT_ID = 'C105540565G';
-const PRICE = 67.0;
+const PRICE = 37.0;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
@@ -146,7 +146,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
       brand: { '@type': 'Brand', name: 'Anderson Cruz' },
       offers: {
         '@type': 'Offer',
-        price: '67.00',
+        price: '37.00',
         priceCurrency: 'BRL',
         availability: 'https://schema.org/InStock',
         url: 'https://pay.hotmart.com/C105540565G?checkoutMode=2',
