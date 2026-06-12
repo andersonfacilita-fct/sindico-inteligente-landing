@@ -1,294 +1,401 @@
 ---
+// Estrutura "Página de Vendas 3x" (método Maxxima) — 14 blocos.
+// Botão de compra SÓ nos blocos 9 e 12. Sem sticky, sem modal: checkout é link direto.
+// Bloco 2 (Depoimentos) removido: sem prova social com lastro (regra Maxxima). Sem "+1.800 síndicos".
 import Layout from '../layouts/Layout.astro';
 
-const mainHtml = `<main> <section class="relative bg-gradient-to-b from-sky-50 via-white to-sky-50 pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden"> <!-- Decorative blobs --> <div class="absolute inset-0 opacity-30 pointer-events-none"> <div class="absolute top-10 -right-20 w-96 h-96 bg-sky-300 rounded-full blur-3xl"></div> <div class="absolute bottom-10 -left-20 w-96 h-96 bg-orange-200 rounded-full blur-3xl"></div> <div class="absolute top-1/2 left-1/3 w-72 h-72 bg-emerald-200 rounded-full blur-3xl opacity-50"></div> </div> <div class="relative max-w-6xl mx-auto px-5 md:px-8"> <!-- Top tag --> <div class="flex justify-center mb-6"> <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white border-2 border-orange-200 rounded-full text-orange-600 text-xs md:text-sm font-bold tracking-wider uppercase shadow-sm"> <span class="text-base">🛡️</span>
-Guia prático · edição 2026
-</div> </div> <!-- Hook --> <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold text-center leading-[1.15] tracking-tight mb-6 text-slate-900">
-Seu condomínio
-<span class="block mt-2">realmente está</span> <span class="block mt-2 text-gradient-orange pb-2">seguro?</span> </h1> <!-- Sub-hook --> <p class="max-w-3xl mx-auto text-center text-base md:text-xl text-slate-600 leading-relaxed mb-10"> <strong class="text-slate-900">62% das câmeras</strong> em condomínios brasileiros estão com defeito não detectado.
-<strong class="text-slate-900">7 em cada 10 prédios</strong> têm ex-moradores com tag ativa.
-<span class="block mt-2 text-orange-600 font-bold">Você sabe se o seu não é um deles?</span> </p> <!-- Mockup + Offer --> <div class="grid md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto"> <!-- Mockup do ebook --> <div class="relative order-2 md:order-1"> <div class="absolute -inset-6 bg-gradient-to-br from-sky-300 via-orange-200 to-emerald-200 blur-3xl rounded-full opacity-60"></div> <div class="relative bg-gradient-to-br from-sky-700 via-sky-600 to-sky-800 rounded-2xl p-8 md:p-10 shadow-2xl border border-sky-400/30 transform md:rotate-[-2deg] hover:rotate-0 transition-transform"> <div class="absolute top-4 left-4 w-1 h-[calc(100%-2rem)] bg-orange-400 rounded-full"></div> <div class="text-orange-300 text-xs font-bold tracking-[3px] mb-4 ml-3">GUIA PRÁTICO</div> <h3 class="ml-3 font-display text-3xl md:text-4xl font-extrabold leading-tight mb-2 text-white">Síndico</h3> <h3 class="ml-3 font-display text-3xl md:text-4xl font-extrabold leading-tight mb-3 text-white">Inteligente</h3> <div class="ml-3 w-12 h-0.5 bg-orange-400 mb-4"></div> <p class="ml-3 text-orange-200 text-sm font-semibold tracking-wider mb-3">// SEGURANÇA ELETRÔNICA</p> <p class="ml-3 text-sky-100 text-sm md:text-base leading-relaxed">Como diagnosticar, modernizar e proteger seu condomínio em 15 minutos de leitura.</p> <div class="ml-3 mt-6 flex flex-wrap gap-3 text-[10px] md:text-xs text-sky-200 font-semibold tracking-wider"> <span>· CFTV</span> <span>· ACESSO</span> <span>· GARAGEM</span> <span>· LGPD</span> </div> </div> </div> <!-- Offer card --> <div class="order-1 md:order-2"> <!-- Countdown --> <div class="mb-6"> <div class="bg-gradient-to-r from-red-600 via-orange-600 to-orange-500 rounded-2xl p-5 md:p-6 shadow-xl shadow-orange-500/30 border border-orange-400"><p class="text-white/90 text-xs md:text-sm font-bold tracking-wider uppercase text-center mb-3 flex items-center justify-center gap-2"><span class="inline-block w-2 h-2 bg-white rounded-full animate-pulse"></span>
-Oferta de lançamento encerra em
-</p><div id="countdown-hero" class="grid grid-cols-4 gap-2 md:gap-3" data-countdown="hero"><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="days">03</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">dias</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="hours">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">horas</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="minutes">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">min</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="seconds">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">seg</div></div></div></div><script>
-  (function () {
-    var STORAGE_KEY = 'si_countdown_end';
-    var DURATION_MS = 3 * 24 * 60 * 60 * 1000; // 3 dias
-    var endTime;
-
-    try {
-      var stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        endTime = parseInt(stored, 10);
-        if (isNaN(endTime) || endTime - Date.now() > DURATION_MS + 60000) {
-          endTime = Date.now() + DURATION_MS;
-          localStorage.setItem(STORAGE_KEY, String(endTime));
-        }
-      } else {
-        endTime = Date.now() + DURATION_MS;
-        localStorage.setItem(STORAGE_KEY, String(endTime));
-      }
-    } catch (e) {
-      endTime = Date.now() + DURATION_MS;
-    }
-
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function update() {
-      var now = Date.now();
-      var diff = endTime - now;
-      if (diff <= 0) {
-        // Reset evergreen — recomeça mais 3 dias
-        endTime = Date.now() + DURATION_MS;
-        try { localStorage.setItem(STORAGE_KEY, String(endTime)); } catch (e) {}
-        diff = DURATION_MS;
-      }
-      var d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      var m = Math.floor((diff / (1000 * 60)) % 60);
-      var s = Math.floor((diff / 1000) % 60);
-
-      document.querySelectorAll('[data-countdown]').forEach(function (root) {
-        var setUnit = function (unit, val) {
-          root.querySelectorAll('[data-unit="' + unit + '"]').forEach(function (el) {
-            el.textContent = pad(val);
-          });
-        };
-        setUnit('days', d);
-        setUnit('hours', h);
-        setUnit('minutes', m);
-        setUnit('seconds', s);
-      });
-    }
-
-    update();
-    setInterval(update, 1000);
-  })();
-</script> </div> <div class="text-center md:text-left"> <div class="inline-flex items-baseline gap-2 mb-1"> <span class="text-slate-500 text-base md:text-lg line-through font-medium">De R$ 197</span> <span class="bg-orange-500 text-white text-xs font-extrabold px-2 py-0.5 rounded">-85%</span> </div> <div class="flex items-baseline gap-2 justify-center md:justify-start mb-2"> <span class="text-slate-700 text-xl md:text-2xl font-light">por apenas</span> </div> <div class="flex items-baseline gap-2 justify-center md:justify-start mb-4"> <span class="text-orange-600 text-xl md:text-2xl font-extrabold">R$</span> <span class="font-display text-7xl md:text-8xl font-extrabold text-orange-600 leading-none">67</span> </div> <p class="text-slate-600 text-sm mb-6 text-center md:text-left">à vista no PIX ou em até <strong>12x de R$ 6,90</strong> no cartão</p> <a href="https://pay.hotmart.com/C105540565G?checkoutMode=2" data-cta="checkout" class="group inline-flex items-center justify-center gap-2 rounded-2xl font-extrabold uppercase tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 cursor-pointer px-6 py-4 sm:px-8 sm:py-5 text-base sm:text-lg bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 hover:from-orange-400 hover:via-orange-500 hover:to-orange-600 text-white btn-glow animate-pulse-slow  hotmart-fb hotmart__button-checkout "> <span class="text-center leading-tight">QUERO PROTEGER MEU CONDOMÍNIO</span> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path> </svg> </a> <p class="mt-5 text-xs md:text-sm text-slate-600 flex items-center justify-center md:justify-start gap-3 flex-wrap"> <span class="inline-flex items-center gap-1.5"> <span class="text-emerald-500">✓</span> <strong>Garantia 7 dias</strong> </span> <span class="text-slate-300">·</span> <span class="inline-flex items-center gap-1.5"> <span class="text-emerald-500">✓</span>
-Acesso imediato
-</span> </p> </div> </div> </div> <!-- Quick proof bar --> <div class="mt-14 md:mt-20 grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto text-center"> <div class="bg-white rounded-2xl p-4 md:p-5 border border-sky-100 shadow-sm"> <div class="font-display text-3xl md:text-5xl font-extrabold text-sky-600">15</div> <div class="text-xs md:text-sm text-slate-600 mt-1">páginas objetivas<br>em 15 min de leitura</div> </div> <div class="bg-white rounded-2xl p-4 md:p-5 border border-orange-100 shadow-sm"> <div class="font-display text-3xl md:text-5xl font-extrabold text-orange-600">+1.800</div> <div class="text-xs md:text-sm text-slate-600 mt-1">síndicos já<br>aplicaram o método</div> </div> <div class="bg-white rounded-2xl p-4 md:p-5 border border-emerald-100 shadow-sm"> <div class="font-display text-3xl md:text-5xl font-extrabold text-emerald-600">30–50%</div> <div class="text-xs md:text-sm text-slate-600 mt-1">economia comprando<br>direto do distribuidor</div> </div> </div> </div> </section> <section class="relative bg-gradient-to-b from-sky-50 via-white to-orange-50 py-16 md:py-24 overflow-hidden"> <!-- Decorative blobs --> <div class="absolute inset-0 opacity-20 pointer-events-none"> <div class="absolute top-1/2 -left-32 w-96 h-96 bg-orange-300 rounded-full blur-3xl"></div> <div class="absolute top-1/2 -right-32 w-96 h-96 bg-sky-300 rounded-full blur-3xl"></div> </div> <div class="relative max-w-6xl mx-auto px-5 md:px-8"> <div class="text-center mb-10 md:mb-12"> <p class="inline-block px-4 py-1.5 bg-red-500 text-white font-extrabold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full shadow-lg animate-pulse">
-▶ assista antes de decidir
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-3">
-Em <span class="text-gradient-orange">60 segundos</span> você entende
-<br class="hidden md:block">por que esse guia funciona
-</h2> <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
-Aperta o play. O Anderson explica direto o que você vai levar.
-</p> </div> <!-- Video container (vertical 9:16 — YouTube Shorts) --> <div class="relative max-w-md mx-auto"> <!-- Glow effect --> <div class="absolute -inset-6 bg-gradient-to-br from-orange-400 via-red-400 to-sky-400 blur-3xl rounded-full opacity-40 animate-pulse-slow"></div> <!-- Video frame --> <div class="relative bg-slate-900 rounded-3xl p-2 shadow-2xl border-4 border-orange-500"> <div class="relative w-full overflow-hidden rounded-2xl" style="aspect-ratio: 9/16;"> <iframe src="https://www.youtube.com/embed/QliG0jrTtqk?rel=0&modestbranding=1&playsinline=1" title="Síndico Inteligente — vídeo de apresentação" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy" class="absolute inset-0 w-full h-full"></iframe> </div> </div> <!-- Tag flutuante --> <div class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-red-500 text-white text-xs md:text-sm font-extrabold px-3 py-1.5 rounded-full shadow-xl animate-bounce-subtle">
-🔴 AO VIVO
-</div> </div> <!-- CTA abaixo do vídeo --> <div class="mt-12 text-center"> <p class="text-slate-700 text-base md:text-lg mb-5"> <strong>Já entendeu o valor?</strong> Garante o seu agora pelo preço de lançamento:
-</p> <a href="https://pay.hotmart.com/C105540565G?checkoutMode=2" data-cta="checkout" class="group inline-flex items-center justify-center gap-2 rounded-2xl font-extrabold uppercase tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 cursor-pointer px-6 py-4 sm:px-8 sm:py-5 text-base sm:text-lg bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 hover:from-orange-400 hover:via-orange-500 hover:to-orange-600 text-white btn-glow animate-pulse-slow  hotmart-fb hotmart__button-checkout "> <span class="text-center leading-tight">QUERO MEU EXEMPLAR POR R$ 67</span> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path> </svg> </a> <p class="mt-4 text-xs md:text-sm text-slate-600 flex items-center justify-center gap-3 flex-wrap"> <span class="inline-flex items-center gap-1.5"> <span class="text-emerald-500">✓</span>
-Garantia 7 dias
-</span> <span class="text-slate-300">·</span> <span class="inline-flex items-center gap-1.5"> <span class="text-emerald-500">✓</span>
-Acesso imediato
-</span> </p> </div> </div> </section> <section class="bg-white py-20 md:py-28"> <div class="max-w-5xl mx-auto px-5 md:px-8"> <div class="text-center mb-14"> <p class="inline-block px-4 py-1.5 bg-orange-100 text-orange-700 font-bold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full">
-⚠️ antes de qualquer solução
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-Os <span class="text-gradient-orange">5 erros</span> que destroem
-<br class="hidden md:block">a segurança do seu condomínio
-</h2> <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
-Marque mentalmente: <strong class="text-slate-900">quantos desses 5 erros estão acontecendo no seu condomínio agora?</strong> </p> </div> <div class="space-y-4 md:space-y-5"> <div class="group bg-white border-2 border-red-100 hover:border-red-300 rounded-2xl p-6 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"> <div class="flex gap-5 md:gap-7 items-start"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg"> 📹 </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">
-ERRO #01 </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Câmera ligada que não grava nada </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> A luzinha pisca, parece tudo certo. Até o dia em que você precisa daquela imagem — e descobre, na pior hora, que o gravador parou faz semanas. Tem 4 motivos comuns pra isso acontecer e 1 rotina simples que evita. Está dentro da cartilha. </p> </div> </div> </div><div class="group bg-white border-2 border-orange-100 hover:border-orange-300 rounded-2xl p-6 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"> <div class="flex gap-5 md:gap-7 items-start"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg"> 🔑 </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2 py-0.5 bg-orange-100 text-orange-700 text-xs font-bold rounded">
-ERRO #02 </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Tags de ex-moradores ainda ativas </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> 7 em cada 10 condomínios têm chaves, cartões e tags de gente que já saiu. O sistema &quot;controla&quot; no papel — na prática, ninguém sabe quem ainda entra. A cartilha mostra qual tipo de credencial elimina esse risco de uma vez. </p> </div> </div> </div><div class="group bg-white border-2 border-red-100 hover:border-red-300 rounded-2xl p-6 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"> <div class="flex gap-5 md:gap-7 items-start"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg"> 🚗 </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">
-ERRO #03 </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Garagem entregue ao tailgating </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> 60% das invasões em condomínios começam por uma única falha de garagem que todo síndico ignora. Na cartilha você descobre quais são as 4 camadas que precisam estar no lugar — e em que ordem corrigir. </p> </div> </div> </div><div class="group bg-white border-2 border-orange-100 hover:border-orange-300 rounded-2xl p-6 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"> <div class="flex gap-5 md:gap-7 items-start"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg"> 🔌 </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2 py-0.5 bg-orange-100 text-orange-700 text-xs font-bold rounded">
-ERRO #04 </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Sistemas que não conversam </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> Quando câmera, acesso e app moram em sistemas diferentes, todo incidente vira investigação em 4 telas — e nada bate. A cartilha mostra qual é o mínimo de integração que muda o jogo. </p> </div> </div> </div><div class="group bg-white border-2 border-red-100 hover:border-red-300 rounded-2xl p-6 md:p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"> <div class="flex gap-5 md:gap-7 items-start"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg"> ⚖️ </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">
-ERRO #05 </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> LGPD ignorada (multa de R$ 50 milhões) </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> Toda câmera que filma pessoas identificáveis cai sob a LGPD — e a responsabilidade pessoal recai sobre o síndico. A cartilha traz os 3 documentos que protegem a gestão (e que ninguém te avisou que existiam). </p> </div> </div> </div> </div> <div class="mt-12 md:mt-16 max-w-3xl mx-auto"> <div class="bg-gradient-to-br from-sky-600 via-sky-700 to-sky-800 text-white rounded-2xl p-8 md:p-10 text-center relative overflow-hidden shadow-xl"> <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400"></div> <div class="absolute -top-10 -right-10 w-40 h-40 bg-orange-400/20 rounded-full blur-3xl"></div> <p class="font-display text-2xl md:text-4xl font-extrabold leading-tight">
-"Câmera ligada não é segurança.<br> <span class="text-orange-300">É expectativa.</span>"
-</p> </div> </div> </div> </section> <section id="metodo" class="bg-gradient-to-b from-sky-50 via-white to-sky-50 py-20 md:py-28 relative overflow-hidden"> <div class="absolute inset-0 opacity-30 pointer-events-none"> <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-sky-200 rounded-full blur-3xl"></div> <div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-emerald-200 rounded-full blur-3xl"></div> </div> <div class="relative max-w-6xl mx-auto px-5 md:px-8"> <div class="text-center mb-14 md:mb-16"> <p class="inline-block px-4 py-1.5 bg-sky-100 text-sky-700 font-bold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full">
-🛡️ a arquitetura que protege
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold leading-tight mb-5 text-slate-900">
-Os <span class="text-gradient-sky">4 pilares</span> da segurança
-<br class="hidden md:block">eletrônica moderna
-</h2> <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
-Esqueça "kit de câmeras". Esqueça "pacote de segurança". A segurança que <strong class="text-slate-900">realmente protege</strong> se sustenta sobre 4 pilares integrados.
-</p> </div> <div class="grid md:grid-cols-2 gap-5 md:gap-7"> <div class="group bg-white border-2 border-sky-200 hover:border-sky-400 rounded-2xl p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"> <div class="flex items-start gap-5"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform"> 📹 </div> </div> <div class="flex-1 min-w-0"> <div class="text-slate-400 font-display text-sm font-extrabold mb-1">PILAR 01</div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> CFTV moderno e funcional </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> Câmera só vale o que sua gravação consegue entregar. Você descobre na cartilha o checklist objetivo do que pedir, o que evitar e como confirmar que o sistema está realmente protegendo. </p> </div> </div> </div><div class="group bg-white border-2 border-emerald-200 hover:border-emerald-400 rounded-2xl p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"> <div class="flex items-start gap-5"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform"> 🔑 </div> </div> <div class="flex-1 min-w-0"> <div class="text-slate-400 font-display text-sm font-extrabold mb-1">PILAR 02</div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Controle de acesso eletrônico </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> A escolha entre as tecnologias muda o custo, a segurança e o trabalho da portaria. A cartilha explica em qual cenário cada uma faz sentido — e quais combinações são desperdício de dinheiro. </p> </div> </div> </div><div class="group bg-white border-2 border-orange-200 hover:border-orange-400 rounded-2xl p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"> <div class="flex items-start gap-5"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform"> 🚗 </div> </div> <div class="flex-1 min-w-0"> <div class="text-slate-400 font-display text-sm font-extrabold mb-1">PILAR 03</div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Garagem fortalecida </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> O ponto mais vulnerável do condomínio tem uma sequência específica de camadas que precisam estar no lugar. A cartilha entrega essa receita — e o que NÃO adianta gastar antes de resolver essas camadas. </p> </div> </div> </div><div class="group bg-white border-2 border-sky-200 hover:border-sky-400 rounded-2xl p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"> <div class="flex items-start gap-5"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-sky-600 text-white flex items-center justify-center text-3xl md:text-4xl shadow-lg group-hover:scale-110 transition-transform"> 🔗 </div> </div> <div class="flex-1 min-w-0"> <div class="text-slate-400 font-display text-sm font-extrabold mb-1">PILAR 04</div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Integração mínima </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> Sistemas isolados geram falhas previsíveis. A cartilha mostra qual é o mínimo de integração que muda o nível de segurança — sem precisar trocar tudo o que já está instalado. </p> </div> </div> </div> </div> <p class="text-center mt-10 text-slate-600 text-sm md:text-base italic">
-Tudo que vier <strong class="text-orange-600">além</strong> desses pilares é refinamento. Tudo que vier <strong class="text-orange-600">aquém</strong> é vulnerabilidade.
-</p> </div> </section> <section class="bg-gradient-to-b from-white to-orange-50 py-20 md:py-28"> <div class="max-w-5xl mx-auto px-5 md:px-8"> <div class="text-center mb-14"> <p class="inline-block px-4 py-1.5 bg-orange-100 text-orange-700 font-bold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full">
-🎁 o que você recebe
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-Tudo que está <span class="text-gradient-orange">incluído</span> </h2> <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
-4 entregáveis que se complementam. Acesso imediato, garantia de 7 dias.
-</p> </div> <div class="space-y-4 md:space-y-5 mb-10"> <div class="bg-white border-2 border-slate-100 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex flex-col md:flex-row md:items-start gap-5 md:gap-7"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-sky-500 flex items-center justify-center text-3xl md:text-4xl shadow-lg"> 📕 </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2.5 py-1 bg-sky-500 text-white text-[10px] md:text-xs font-extrabold rounded tracking-wider"> PRINCIPAL </span> <span class="text-slate-500 text-sm md:text-base">
-Valor avulso: <span class="line-through font-semibold">R$ 149,90</span> </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Ebook Síndico Inteligente · 15 páginas </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> Guia executivo completo: 5 erros + 4 pilares + CFTV + controle de acesso + garagem + LGPD + cadastro distribuidor. Linguagem direta, dados de mercado reais, leitura em 15 minutos. </p> </div> </div> </div><div class="bg-white border-2 border-slate-100 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex flex-col md:flex-row md:items-start gap-5 md:gap-7"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-emerald-500 flex items-center justify-center text-3xl md:text-4xl shadow-lg"> ✅ </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2.5 py-1 bg-emerald-500 text-white text-[10px] md:text-xs font-extrabold rounded tracking-wider"> BÔNUS 1 </span> <span class="text-slate-500 text-sm md:text-base">
-Valor avulso: <span class="line-through font-semibold">R$ 47,00</span> </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Checklist em PDF · diagnóstico em 30 minutos </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> 22 itens organizados em 4 blocos (CFTV, controle, garagem, LGPD). Aplique no seu condomínio, marque cada NÃO como vulnerabilidade, gere o relatório de prioridades. </p> </div> </div> </div><div class="bg-white border-2 border-slate-100 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex flex-col md:flex-row md:items-start gap-5 md:gap-7"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-emerald-500 flex items-center justify-center text-3xl md:text-4xl shadow-lg"> 💬 </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2.5 py-1 bg-emerald-500 text-white text-[10px] md:text-xs font-extrabold rounded tracking-wider"> BÔNUS 2 </span> <span class="text-slate-500 text-sm md:text-base">
-Valor avulso: <span class="line-through font-semibold">R$ 27,00</span> </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Acesso ao grupo VIP de Síndicos no WhatsApp </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> Tira-dúvidas direto com a equipe Facilita, dicas quentes do setor, condições especiais em equipamentos e atendimento prioritário. </p> </div> </div> </div><div class="bg-white border-2 border-slate-100 rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex flex-col md:flex-row md:items-start gap-5 md:gap-7"> <div class="flex-shrink-0"> <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-orange-500 flex items-center justify-center text-3xl md:text-4xl shadow-lg"> 🏷️ </div> </div> <div class="flex-1 min-w-0"> <div class="flex items-center gap-3 mb-2 flex-wrap"> <span class="inline-block px-2.5 py-1 bg-orange-500 text-white text-[10px] md:text-xs font-extrabold rounded tracking-wider"> BÔNUS 3 </span> <span class="text-slate-500 text-sm md:text-base">
-Valor avulso: <span class="line-through font-semibold">R$ 27,00</span> </span> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-2 leading-tight"> Cadastro do condomínio na Facilita </h3> <p class="text-slate-600 text-sm md:text-base leading-relaxed"> Compre equipamento direto do distribuidor com preço de revenda — economize 30 a 50% sobre o orçamento &quot;kit instalador&quot;. Aprovação em até 3 dias úteis. </p> </div> </div> </div> </div> <!-- Stack value --> <div class="bg-gradient-to-br from-sky-600 via-sky-700 to-sky-800 text-white rounded-3xl p-8 md:p-10 text-center relative overflow-hidden shadow-2xl"> <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400"></div> <div class="absolute -top-20 -right-20 w-60 h-60 bg-orange-400/20 rounded-full blur-3xl"></div> <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-emerald-400/20 rounded-full blur-3xl"></div> <p class="relative text-orange-300 font-bold tracking-wider text-xs md:text-sm uppercase mb-4">
-Soma do valor avulso
-</p> <div class="relative font-display text-4xl md:text-6xl font-extrabold mb-2"> <span class="text-sky-300 line-through">R$ 197</span> </div> <p class="relative text-sky-100 text-base md:text-lg mb-6">
-Hoje, no combo de lançamento:
-</p> <div class="relative flex items-baseline justify-center gap-2 mb-6"> <span class="text-orange-300 text-2xl md:text-3xl font-extrabold">R$</span> <span class="font-display text-7xl md:text-9xl font-extrabold text-white leading-none">67</span> </div> <p class="relative text-sky-100 text-sm md:text-base mb-8">
-Você economiza <strong class="text-emerald-300">R$ 212,90</strong> · pagamento único · acesso vitalício
-</p> <div class="relative"> <a href="https://pay.hotmart.com/C105540565G?checkoutMode=2" data-cta="checkout" class="group inline-flex items-center justify-center gap-2 rounded-2xl font-extrabold uppercase tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 cursor-pointer px-6 py-5 sm:px-10 sm:py-6 text-lg sm:text-xl bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 hover:from-orange-400 hover:via-orange-500 hover:to-orange-600 text-white btn-glow animate-pulse-slow  hotmart-fb hotmart__button-checkout "> <span class="text-center leading-tight">QUERO TUDO POR R$ 67</span> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path> </svg> </a> </div> </div> </div> </section> <section class="bg-white py-20 md:py-28"> <div class="max-w-6xl mx-auto px-5 md:px-8"> <div class="text-center mb-14"> <p class="inline-block px-4 py-1.5 bg-emerald-100 text-emerald-700 font-bold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full">
-💬 o que estão dizendo
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-Síndicos pelo Brasil <span class="text-gradient-sky">já aplicaram</span> </h2> <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
-Ebook entregue em PDF, leitura em 15 minutos, aplicação imediata.
-</p> </div> <!-- Depoimentos --> <div class="grid md:grid-cols-2 gap-5 md:gap-7 mb-14"> <div class="bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 rounded-2xl p-7 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex items-center gap-2 mb-4"> <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg> </div> <p class="text-slate-700 text-base leading-relaxed mb-6 italic">"Apliquei o checklist no condomínio que administro e em 1 hora identifiquei 6 vulnerabilidades. O ponto da verificação semanal do gravador era exatamente o que faltava — o nosso estava sem gravar há 11 dias e ninguém tinha notado."</p> <div class="flex items-center gap-3"> <div class="w-12 h-12 rounded-full bg-sky-500 text-white flex items-center justify-center font-extrabold text-sm shadow-md"> CH </div> <div> <p class="font-extrabold text-slate-900 text-sm md:text-base">Carlos Henrique</p> <p class="text-slate-500 text-xs md:text-sm">Síndico profissional · Belo Horizonte/MG</p> </div> </div> </div><div class="bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 rounded-2xl p-7 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex items-center gap-2 mb-4"> <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg> </div> <p class="text-slate-700 text-base leading-relaxed mb-6 italic">"Sou síndica do meu prédio há 8 meses, sem nenhuma experiência. Esse ebook me deu a estrutura que eu precisava pra entender o que perguntar pros fornecedores. Aprovamos a modernização da garagem em assembleia mês passado."</p> <div class="flex items-center gap-3"> <div class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center font-extrabold text-sm shadow-md"> RA </div> <div> <p class="font-extrabold text-slate-900 text-sm md:text-base">Rosana Almeida</p> <p class="text-slate-500 text-xs md:text-sm">Síndica moradora · São Paulo/SP</p> </div> </div> </div><div class="bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 rounded-2xl p-7 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex items-center gap-2 mb-4"> <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg> </div> <p class="text-slate-700 text-base leading-relaxed mb-6 italic">"Comprei pra entender melhor a gestão e cobrar nosso síndico com base técnica. Vale cada centavo. A explicação do tailgating mudou minha forma de olhar pra entrada de carros."</p> <div class="flex items-center gap-3"> <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center font-extrabold text-sm shadow-md"> MT </div> <div> <p class="font-extrabold text-slate-900 text-sm md:text-base">Marcelo Tonelli</p> <p class="text-slate-500 text-xs md:text-sm">Conselheiro fiscal · Curitiba/PR</p> </div> </div> </div><div class="bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 rounded-2xl p-7 md:p-8 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all"> <div class="flex items-center gap-2 mb-4"> <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg><svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"> <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path> </svg> </div> <p class="text-slate-700 text-base leading-relaxed mb-6 italic">"O capítulo sobre LGPD é ouro. Eu não sabia que o condomínio precisava de termo de consentimento individual pra biometria. Já acionei nossa assessoria jurídica."</p> <div class="flex items-center gap-3"> <div class="w-12 h-12 rounded-full bg-sky-500 text-white flex items-center justify-center font-extrabold text-sm shadow-md"> PV </div> <div> <p class="font-extrabold text-slate-900 text-sm md:text-base">Patrícia Vasconcelos</p> <p class="text-slate-500 text-xs md:text-sm">Síndica profissional · Recife/PE</p> </div> </div> </div> </div> <!-- Stats bar --> <div class="bg-gradient-to-br from-sky-600 via-sky-700 to-sky-800 text-white rounded-2xl p-8 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-center shadow-xl relative overflow-hidden"> <div class="absolute -top-10 -right-10 w-40 h-40 bg-orange-400/20 rounded-full blur-3xl"></div> <div class="relative"> <div class="text-3xl mb-2">⭐</div> <div class="font-display text-3xl md:text-5xl font-extrabold text-orange-300 mb-1">4.9/5</div> <div class="text-sky-100 text-xs md:text-sm">Avaliação média</div> </div><div class="relative"> <div class="text-3xl mb-2">👥</div> <div class="font-display text-3xl md:text-5xl font-extrabold text-orange-300 mb-1">+1.800</div> <div class="text-sky-100 text-xs md:text-sm">Síndicos aplicaram</div> </div><div class="relative"> <div class="text-3xl mb-2">💬</div> <div class="font-display text-3xl md:text-5xl font-extrabold text-orange-300 mb-1">184</div> <div class="text-sky-100 text-xs md:text-sm">Avaliações positivas</div> </div><div class="relative"> <div class="text-3xl mb-2">🛡️</div> <div class="font-display text-3xl md:text-5xl font-extrabold text-orange-300 mb-1">7 dias</div> <div class="text-sky-100 text-xs md:text-sm">Garantia incondicional</div> </div> </div> </div> </section> <section class="bg-gradient-to-b from-orange-50 via-white to-sky-50 py-20 md:py-28"> <div class="max-w-5xl mx-auto px-5 md:px-8"> <div class="text-center mb-14"> <p class="inline-block px-4 py-1.5 bg-sky-100 text-sky-700 font-bold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full">
-🎯 pra quem este guia foi escrito
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-Este ebook é <span class="text-gradient-orange">pra você</span>?
-</h2> </div> <div class="grid md:grid-cols-2 gap-6 md:gap-8"> <!-- É pra você --> <div class="bg-white border-2 border-emerald-400 rounded-2xl p-7 md:p-8 shadow-xl relative overflow-hidden"> <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-400 to-emerald-600"></div> <div class="flex items-center gap-3 mb-6"> <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white flex items-center justify-center shadow-lg"> <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path> </svg> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-emerald-700">É pra você se...</h3> </div> <ul class="space-y-3.5"> <li class="flex gap-3 text-slate-700 text-sm md:text-base leading-relaxed"> <span class="text-emerald-500 font-extrabold flex-shrink-0 mt-0.5 text-lg">✓</span> <span>Você é síndico (profissional ou morador eleito) e quer parar de improvisar decisões de segurança.</span> </li><li class="flex gap-3 text-slate-700 text-sm md:text-base leading-relaxed"> <span class="text-emerald-500 font-extrabold flex-shrink-0 mt-0.5 text-lg">✓</span> <span>Quer entender o que perguntar pros fornecedores antes de pagar caro por equipamento desnecessário.</span> </li><li class="flex gap-3 text-slate-700 text-sm md:text-base leading-relaxed"> <span class="text-emerald-500 font-extrabold flex-shrink-0 mt-0.5 text-lg">✓</span> <span>Está cansado de descobrir problemas só quando acontece um incidente.</span> </li><li class="flex gap-3 text-slate-700 text-sm md:text-base leading-relaxed"> <span class="text-emerald-500 font-extrabold flex-shrink-0 mt-0.5 text-lg">✓</span> <span>Precisa de argumentos técnicos pra apresentar projeto de modernização em assembleia.</span> </li><li class="flex gap-3 text-slate-700 text-sm md:text-base leading-relaxed"> <span class="text-emerald-500 font-extrabold flex-shrink-0 mt-0.5 text-lg">✓</span> <span>Quer economizar 30 a 50% comprando direto do distribuidor, sem depender só do instalador.</span> </li><li class="flex gap-3 text-slate-700 text-sm md:text-base leading-relaxed"> <span class="text-emerald-500 font-extrabold flex-shrink-0 mt-0.5 text-lg">✓</span> <span>É conselheiro/subsíndico e quer fiscalizar a gestão com base técnica, não com achismo.</span> </li> </ul> </div> <!-- Não é pra você --> <div class="bg-white border-2 border-slate-200 rounded-2xl p-7 md:p-8"> <div class="absolute"></div> <div class="flex items-center gap-3 mb-6"> <div class="w-12 h-12 rounded-xl bg-slate-300 text-slate-600 flex items-center justify-center"> <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path> </svg> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-700">Não é pra você se...</h3> </div> <ul class="space-y-3.5"> <li class="flex gap-3 text-slate-600 text-sm md:text-base leading-relaxed"> <span class="text-slate-400 font-bold flex-shrink-0 mt-0.5">✗</span> <span>Você acha que &quot;câmera é câmera, qualquer uma serve&quot;.</span> </li><li class="flex gap-3 text-slate-600 text-sm md:text-base leading-relaxed"> <span class="text-slate-400 font-bold flex-shrink-0 mt-0.5">✗</span> <span>Não tem mínima disposição de aplicar checklist no seu condomínio.</span> </li><li class="flex gap-3 text-slate-600 text-sm md:text-base leading-relaxed"> <span class="text-slate-400 font-bold flex-shrink-0 mt-0.5">✗</span> <span>Acredita que segurança eletrônica é luxo, não necessidade.</span> </li><li class="flex gap-3 text-slate-600 text-sm md:text-base leading-relaxed"> <span class="text-slate-400 font-bold flex-shrink-0 mt-0.5">✗</span> <span>Procura conteúdo técnico aprofundado de engenharia (este guia é prático, não técnico-especializado).</span> </li> </ul> </div> </div> </div> </section> <section id="oferta" class="bg-gradient-to-b from-sky-50 to-white py-20 md:py-28 relative overflow-hidden"> <div class="absolute inset-0 opacity-30 pointer-events-none"> <div class="absolute top-1/4 -right-32 w-96 h-96 bg-orange-200 rounded-full blur-3xl"></div> <div class="absolute bottom-1/4 -left-32 w-96 h-96 bg-sky-200 rounded-full blur-3xl"></div> </div> <div class="relative max-w-4xl mx-auto px-5 md:px-8"> <div class="text-center mb-10 md:mb-12"> <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-red-500 text-white rounded-full text-xs md:text-sm font-extrabold tracking-wider uppercase mb-6 shadow-lg animate-pulse"> <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
-Oferta de lançamento · -85%
-</div> <h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 mb-4">
-Tudo isso por
-<span class="block mt-2 text-gradient-orange">menos de R$ 40</span> </h2> </div> <!-- Countdown --> <div class="max-w-md mx-auto mb-8"> <div class="bg-gradient-to-r from-red-600 via-orange-600 to-orange-500 rounded-2xl p-5 md:p-6 shadow-xl shadow-orange-500/30 border border-orange-400"><p class="text-white/90 text-xs md:text-sm font-bold tracking-wider uppercase text-center mb-3 flex items-center justify-center gap-2"><span class="inline-block w-2 h-2 bg-white rounded-full animate-pulse"></span>
-Oferta de lançamento encerra em
-</p><div id="countdown-hero" class="grid grid-cols-4 gap-2 md:gap-3" data-countdown="hero"><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="days">03</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">dias</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="hours">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">horas</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="minutes">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">min</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="seconds">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">seg</div></div></div></div><script>
-  (function () {
-    var STORAGE_KEY = 'si_countdown_end';
-    var DURATION_MS = 3 * 24 * 60 * 60 * 1000; // 3 dias
-    var endTime;
-
-    try {
-      var stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        endTime = parseInt(stored, 10);
-        if (isNaN(endTime) || endTime - Date.now() > DURATION_MS + 60000) {
-          endTime = Date.now() + DURATION_MS;
-          localStorage.setItem(STORAGE_KEY, String(endTime));
-        }
-      } else {
-        endTime = Date.now() + DURATION_MS;
-        localStorage.setItem(STORAGE_KEY, String(endTime));
-      }
-    } catch (e) {
-      endTime = Date.now() + DURATION_MS;
-    }
-
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function update() {
-      var now = Date.now();
-      var diff = endTime - now;
-      if (diff <= 0) {
-        // Reset evergreen — recomeça mais 3 dias
-        endTime = Date.now() + DURATION_MS;
-        try { localStorage.setItem(STORAGE_KEY, String(endTime)); } catch (e) {}
-        diff = DURATION_MS;
-      }
-      var d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      var m = Math.floor((diff / (1000 * 60)) % 60);
-      var s = Math.floor((diff / 1000) % 60);
-
-      document.querySelectorAll('[data-countdown]').forEach(function (root) {
-        var setUnit = function (unit, val) {
-          root.querySelectorAll('[data-unit="' + unit + '"]').forEach(function (el) {
-            el.textContent = pad(val);
-          });
-        };
-        setUnit('days', d);
-        setUnit('hours', h);
-        setUnit('minutes', m);
-        setUnit('seconds', s);
-      });
-    }
-
-    update();
-    setInterval(update, 1000);
-  })();
-</script> </div> <!-- Card principal --> <div class="relative bg-white rounded-3xl p-7 md:p-12 shadow-2xl border-4 border-orange-500"> <!-- Tag superior --> <div class="absolute -top-5 left-1/2 -translate-x-1/2"> <span class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-full font-extrabold text-xs md:text-sm tracking-wider uppercase shadow-lg">
-⭐ Pacote Completo
-</span> </div> <!-- Lista do que vem --> <div class="mb-8 mt-4"> <p class="text-center text-slate-600 text-sm md:text-base mb-5">Você está levando:</p> <ul class="space-y-3 max-w-md mx-auto"> <li class="flex items-center gap-3 text-slate-700 text-sm md:text-base"> <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path> </svg> <span class="flex-1">Ebook Síndico Inteligente · 15 páginas em PDF</span> <span class="line-through text-slate-400 text-xs md:text-sm font-semibold">R$ 149,90</span> </li><li class="flex items-center gap-3 text-slate-700 text-sm md:text-base"> <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path> </svg> <span class="flex-1">Checklist · diagnóstico em 30 minutos</span> <span class="line-through text-slate-400 text-xs md:text-sm font-semibold">R$ 47,00</span> </li><li class="flex items-center gap-3 text-slate-700 text-sm md:text-base"> <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path> </svg> <span class="flex-1">Grupo VIP de Síndicos no WhatsApp</span> <span class="line-through text-slate-400 text-xs md:text-sm font-semibold">R$ 27,00</span> </li><li class="flex items-center gap-3 text-slate-700 text-sm md:text-base"> <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path> </svg> <span class="flex-1">Cadastro Facilita · economia 30–50% em equipamento</span> <span class="line-through text-slate-400 text-xs md:text-sm font-semibold">R$ 27,00</span> </li> </ul> </div> <!-- Divisor com soma --> <div class="border-t border-slate-200 pt-6 mb-6"> <div class="flex items-center justify-between text-base md:text-lg mb-1"> <span class="text-slate-700">Valor total:</span> <span class="text-slate-700 line-through font-semibold">R$ 197</span> </div> <div class="flex items-center justify-between text-sm text-emerald-600 font-extrabold"> <span>Você economiza:</span> <span>− R$ 212,90 (85%)</span> </div> </div> <!-- Preço final --> <div class="text-center mb-8"> <p class="text-slate-500 text-sm md:text-base mb-1">Por apenas:</p> <div class="flex items-baseline justify-center gap-2 mb-1"> <span class="text-orange-600 text-2xl md:text-3xl font-extrabold">R$</span> <span class="font-display text-7xl md:text-9xl font-extrabold text-orange-600 leading-none">67</span> <span class="text-slate-700 text-2xl md:text-3xl">,00</span> </div> <p class="text-slate-600 text-sm md:text-base">
-ou em até <strong class="text-slate-900">12x de R$ 6,90</strong> no cartão
-</p> </div> <!-- CTA --> <a href="https://pay.hotmart.com/C105540565G?checkoutMode=2" data-cta="checkout" class="group inline-flex items-center justify-center gap-2 rounded-2xl font-extrabold uppercase tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 cursor-pointer px-6 py-5 sm:px-10 sm:py-6 text-lg sm:text-xl bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 hover:from-orange-400 hover:via-orange-500 hover:to-orange-600 text-white btn-glow animate-pulse-slow w-full hotmart-fb hotmart__button-checkout "> <span class="text-center leading-tight">GARANTIR MEU PACOTE POR R$ 67</span> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path> </svg> </a> <!-- Garantias --> <div class="mt-6 grid grid-cols-3 gap-3 text-center"> <div class="flex flex-col items-center gap-1 p-2"> <span class="text-2xl">🛡️</span> <span class="text-[10px] md:text-xs text-slate-700 font-extrabold">Garantia 7 dias</span> </div> <div class="flex flex-col items-center gap-1 p-2"> <span class="text-2xl">⚡</span> <span class="text-[10px] md:text-xs text-slate-700 font-extrabold">Acesso imediato</span> </div> <div class="flex flex-col items-center gap-1 p-2"> <span class="text-2xl">🔒</span> <span class="text-[10px] md:text-xs text-slate-700 font-extrabold">Pagamento seguro</span> </div> </div> </div> <!-- Box garantia --> <div class="mt-10 bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-200 rounded-2xl p-6 md:p-8 text-center"> <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500 text-white shadow-lg mb-4"> <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"> <path d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" fill-rule="evenodd"></path> </svg> </div> <h3 class="font-display text-xl md:text-2xl font-extrabold text-slate-900 mb-3">
-Garantia incondicional de 7 dias
-</h3> <p class="text-slate-700 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-Compre, leia, aplique. Se em 7 dias não achar que vale cada centavo, devolvemos 100% do valor sem perguntas. <strong class="text-emerald-700">O risco é todo nosso.</strong> </p> </div> </div> </section> <section class="bg-gradient-to-b from-white to-sky-50 py-20 md:py-28"> <div class="max-w-5xl mx-auto px-5 md:px-8"> <div class="text-center mb-12"> <p class="inline-block px-4 py-1.5 bg-sky-100 text-sky-700 font-bold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full">
-👤 sobre o autor
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-Quem está por trás <span class="text-gradient-sky">deste guia</span> </h2> </div> <div class="bg-white border-2 border-sky-100 rounded-3xl p-8 md:p-12 shadow-xl"> <div class="grid md:grid-cols-3 gap-8 md:gap-12 items-center"> <!-- Foto --> <div class="md:col-span-1 flex justify-center"> <div class="relative"> <div class="absolute -inset-3 bg-gradient-to-br from-sky-300 to-orange-300 blur-2xl rounded-full opacity-60"></div> <div class="relative w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-gradient-to-br from-sky-500 to-sky-700"> <img src="/anderson-cruz.jpg" alt="Anderson Cruz — Facilita Distribuidora" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"> <div class="w-full h-full hidden items-center justify-center"> <span class="font-display text-6xl md:text-7xl font-extrabold text-white">AC</span> </div> </div> <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1.5 rounded-full text-xs font-extrabold tracking-wider whitespace-nowrap shadow-lg">
-FACILITA · 2026
-</div> </div> </div> <!-- Texto --> <div class="md:col-span-2"> <h3 class="font-display text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
-Anderson Cruz
-</h3> <p class="text-orange-600 font-extrabold text-sm md:text-base tracking-wider uppercase mb-5">
-Especialista em segurança eletrônica para condomínios
-</p> <p class="text-slate-700 text-base leading-relaxed mb-4">
-À frente da <strong class="text-slate-900">Facilita Distribuidora</strong>, atua há anos no mercado de automação predial e segurança eletrônica, atendendo síndicos, conselhos e administradoras em todo o Brasil.
-</p> <p class="text-slate-700 text-base leading-relaxed mb-4">
-Acompanhou centenas de projetos de modernização — do diagnóstico inicial à entrega final — e identificou os <strong class="text-slate-900">padrões de erro que se repetem em quase todos os condomínios brasileiros</strong>. Esse ebook é o destilado dessa experiência prática.
-</p> <p class="text-slate-700 text-base leading-relaxed">
-Missão: ajudar síndicos a tomarem decisões de segurança com base técnica, sem cair em ciladas comerciais — e sem pagar caro por equipamento que pode ser comprado direto na fonte.
-</p> <div class="mt-6 grid grid-cols-3 gap-3 md:gap-5"> <div class="text-center bg-sky-50 rounded-xl p-3 md:p-4 border border-sky-200"> <div class="font-display text-xl md:text-2xl font-extrabold text-sky-700">+500</div> <div class="text-[10px] md:text-xs text-slate-600 mt-1">Projetos acompanhados</div> </div> <div class="text-center bg-emerald-50 rounded-xl p-3 md:p-4 border border-emerald-200"> <div class="font-display text-xl md:text-2xl font-extrabold text-emerald-700">100%</div> <div class="text-[10px] md:text-xs text-slate-600 mt-1">Foco em condomínios</div> </div> <div class="text-center bg-orange-50 rounded-xl p-3 md:p-4 border border-orange-200"> <div class="font-display text-xl md:text-2xl font-extrabold text-orange-700">BR</div> <div class="text-[10px] md:text-xs text-slate-600 mt-1">Atendimento nacional</div> </div> </div> </div> </div> </div> </div> </section> <section id="faq" class="bg-white py-20 md:py-28"> <div class="max-w-3xl mx-auto px-5 md:px-8"> <div class="text-center mb-12"> <p class="inline-block px-4 py-1.5 bg-sky-100 text-sky-700 font-bold tracking-[2px] text-xs md:text-sm uppercase mb-4 rounded-full">
-❓ perguntas frequentes
-</p> <h2 class="font-display text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-Tirando suas <span class="text-gradient-sky">dúvidas</span> </h2> </div> <div class="space-y-3"> <details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">Sou síndico há pouco tempo, esse ebook é pra mim?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">Sim. O ebook foi escrito justamente para síndicos que não têm formação técnica em segurança eletrônica. A linguagem é direta, com exemplos do dia a dia, e cada capítulo traz dados de mercado pra você ter base na hora de decidir. Em 15 minutos de leitura você já consegue diagnosticar seu condomínio.</p> </div> </details><details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">Como recebo o material após a compra?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">Acesso imediato. Após a confirmação do pagamento (PIX cai em segundos, cartão em até 1 minuto), você recebe e-mail com o link de download do PDF, o checklist em separado e o convite para entrar no grupo VIP do WhatsApp. Tudo na mesma hora.</p> </div> </details><details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">Esse valor de R$ 67 é mensalidade?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">Não. É pagamento único. R$ 67 à vista no PIX ou em até 12x de R$ 6,90 no cartão. Acesso vitalício ao material, ao grupo VIP e às atualizações futuras do ebook.</p> </div> </details><details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">Como funciona a garantia de 7 dias?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">Você compra, baixa o material, lê com calma e aplica. Se em até 7 dias decidir que não foi útil, basta enviar um e-mail solicitando o reembolso. Devolvemos 100% do valor sem perguntas, sem burocracia, sem fricção. O risco é todo nosso.</p> </div> </details><details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">Tenho que ser cliente da Facilita pra aproveitar o cadastro de distribuidor?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">Não. O cadastro do condomínio na Facilita é gratuito e independente da compra do ebook. O Bônus 4 é justamente o passo a passo de como cadastrar e começar a comprar equipamento direto, com preço de revenda — economia média de 30 a 50% sobre o &quot;kit instalador&quot;.</p> </div> </details><details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">Posso pedir reembolso e ainda assim continuar com o material?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">Honestamente, sim. Se você pedir reembolso, devolvemos o dinheiro e você pode manter os arquivos. Confiamos que o conteúdo se justifica por si só — e que síndicos que aplicam o método não pedem reembolso porque o resultado fala mais alto.</p> </div> </details><details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">Por que esse preço tão baixo se o valor avulso soma R$ 197?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">É um preço de lançamento. A Facilita está montando uma comunidade de síndicos pela primeira vez no Brasil e o nosso interesse maior é volume e relacionamento. Quanto mais síndicos aplicarem o método, mais autoridade construímos no setor. Esse preço pode subir a qualquer momento.</p> </div> </details><details class="group bg-white border-2 border-slate-100 rounded-xl hover:border-orange-300 hover:shadow-md transition-all"> <summary class="cursor-pointer p-5 md:p-6 list-none flex items-center justify-between gap-4"> <h3 class="font-display text-base md:text-lg font-extrabold text-slate-900 leading-snug">O ebook fala de portaria remota também?</h3> <div class="w-8 h-8 rounded-full bg-orange-100 group-hover:bg-orange-500 group-open:bg-orange-500 group-open:rotate-180 flex items-center justify-center transition-all flex-shrink-0"> <svg class="w-4 h-4 text-orange-600 group-hover:text-white group-open:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path> </svg> </div> </summary> <div class="px-5 pb-5 md:px-6 md:pb-6 -mt-1"> <p class="text-slate-600 text-sm md:text-base leading-relaxed">Esta edição é focada em segurança eletrônica (CFTV, controle de acesso, garagem, LGPD). O guia completo de portaria (física, remota, autônoma) sairá em uma edição separada. Membros do grupo VIP recebem acesso antecipado quando lançar.</p> </div> </details> </div> </div> </section> <section class="bg-gradient-to-br from-sky-600 via-sky-700 to-sky-800 text-white py-20 md:py-28 relative overflow-hidden"> <div class="absolute inset-0 opacity-30 pointer-events-none"> <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-400 rounded-full blur-3xl"></div> <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-emerald-400 rounded-full blur-3xl"></div> </div> <div class="relative max-w-3xl mx-auto px-5 md:px-8 text-center"> <p class="inline-block px-4 py-1.5 bg-orange-500 text-white font-extrabold tracking-[2px] text-xs md:text-sm uppercase rounded-full mb-6 shadow-lg">
-⚡ dois caminhos
-</p> <h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-8">
-Você sai dessa página de duas formas
-</h2> <div class="grid md:grid-cols-2 gap-5 md:gap-6 mb-10 text-left"> <!-- Caminho A --> <div class="bg-white/10 border-2 border-white/20 rounded-2xl p-6 md:p-7 backdrop-blur"> <div class="flex items-center gap-3 mb-4"> <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center shadow-lg"> <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg> </div> <h3 class="font-display text-lg md:text-xl font-extrabold text-red-200">Sem aplicar nada</h3> </div> <p class="text-sky-100 text-sm md:text-base leading-relaxed">
-Continua administrando no improviso. Continua descobrindo problemas só quando acontece um incidente. Continua pagando 30 a 50% a mais em equipamento. Em 6 meses, está exatamente no mesmo lugar.
-</p> </div> <!-- Caminho B --> <div class="bg-orange-500/20 border-2 border-orange-400 rounded-2xl p-6 md:p-7 backdrop-blur"> <div class="flex items-center gap-3 mb-4"> <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg"> <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> </div> <h3 class="font-display text-lg md:text-xl font-extrabold text-orange-200">Com método e clareza</h3> </div> <p class="text-white text-sm md:text-base leading-relaxed">
-Gasta 15 minutos lendo. Aplica o checklist em 30. Diagnostica seu condomínio. Sabe o que priorizar. Negocia com fornecedor de igual pra igual. Economiza milhares já no primeiro projeto.
-</p> </div> </div> <p class="text-sky-100 text-base md:text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
-A escolha leva <strong class="text-white">3 segundos</strong>.<br>
-O resultado pode mudar <strong class="text-orange-300">os próximos anos da sua gestão</strong>.
-</p> <!-- Countdown --> <div class="max-w-md mx-auto mb-8"> <div class="bg-gradient-to-r from-red-600 via-orange-600 to-orange-500 rounded-2xl p-5 md:p-6 shadow-xl shadow-orange-500/30 border border-orange-400"><p class="text-white/90 text-xs md:text-sm font-bold tracking-wider uppercase text-center mb-3 flex items-center justify-center gap-2"><span class="inline-block w-2 h-2 bg-white rounded-full animate-pulse"></span>
-Oferta de lançamento encerra em
-</p><div id="countdown-hero" class="grid grid-cols-4 gap-2 md:gap-3" data-countdown="hero"><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="days">03</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">dias</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="hours">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">horas</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="minutes">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">min</div></div><div class="bg-white/15 backdrop-blur rounded-xl py-2 md:py-3 text-center"><div class="font-display text-3xl md:text-5xl font-extrabold text-white leading-none" data-unit="seconds">00</div><div class="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-1">seg</div></div></div></div><script>
-  (function () {
-    var STORAGE_KEY = 'si_countdown_end';
-    var DURATION_MS = 3 * 24 * 60 * 60 * 1000; // 3 dias
-    var endTime;
-
-    try {
-      var stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        endTime = parseInt(stored, 10);
-        if (isNaN(endTime) || endTime - Date.now() > DURATION_MS + 60000) {
-          endTime = Date.now() + DURATION_MS;
-          localStorage.setItem(STORAGE_KEY, String(endTime));
-        }
-      } else {
-        endTime = Date.now() + DURATION_MS;
-        localStorage.setItem(STORAGE_KEY, String(endTime));
-      }
-    } catch (e) {
-      endTime = Date.now() + DURATION_MS;
-    }
-
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function update() {
-      var now = Date.now();
-      var diff = endTime - now;
-      if (diff <= 0) {
-        // Reset evergreen — recomeça mais 3 dias
-        endTime = Date.now() + DURATION_MS;
-        try { localStorage.setItem(STORAGE_KEY, String(endTime)); } catch (e) {}
-        diff = DURATION_MS;
-      }
-      var d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      var m = Math.floor((diff / (1000 * 60)) % 60);
-      var s = Math.floor((diff / 1000) % 60);
-
-      document.querySelectorAll('[data-countdown]').forEach(function (root) {
-        var setUnit = function (unit, val) {
-          root.querySelectorAll('[data-unit="' + unit + '"]').forEach(function (el) {
-            el.textContent = pad(val);
-          });
-        };
-        setUnit('days', d);
-        setUnit('hours', h);
-        setUnit('minutes', m);
-        setUnit('seconds', s);
-      });
-    }
-
-    update();
-    setInterval(update, 1000);
-  })();
-</script> </div> <a href="https://pay.hotmart.com/C105540565G?checkoutMode=2" data-cta="checkout" class="group inline-flex items-center justify-center gap-2 rounded-2xl font-extrabold uppercase tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 cursor-pointer px-6 py-5 sm:px-10 sm:py-6 text-lg sm:text-xl bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 hover:from-orange-400 hover:via-orange-500 hover:to-orange-600 text-white btn-glow animate-pulse-slow  hotmart-fb hotmart__button-checkout "> <span class="text-center leading-tight">QUERO ACESSO IMEDIATO POR R$ 67</span> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"> <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path> </svg> </a> <p class="mt-6 text-xs md:text-sm text-sky-200 flex items-center justify-center gap-3 flex-wrap"> <span class="inline-flex items-center gap-1.5"> <span class="text-emerald-300">✓</span> <strong>Garantia 7 dias incondicional</strong> </span> <span class="text-sky-400">·</span> <span>Acesso imediato após pagamento</span> <span class="text-sky-400">·</span> <span>Hotmart · Compra protegida</span> </p> </div> </section> </main>`;
-const footerHtml = `<footer class="bg-slate-900 text-slate-300 py-14 md:py-16"> <div class="max-w-6xl mx-auto px-5 md:px-8"> <div class="grid md:grid-cols-3 gap-10 mb-10"> <div> <div class="flex items-center gap-2 mb-4"> <span class="inline-block w-2.5 h-2.5 bg-orange-500 rounded-full"></span> <span class="font-display text-xl font-extrabold text-white">Síndico Inteligente</span> </div> <p class="text-slate-400 text-sm leading-relaxed mb-4">
-Guia executivo para síndicos brasileiros. Edição 2026. Por Anderson Cruz · Facilita Distribuidora.
-</p> <p class="text-slate-500 text-xs">
-Todas as informações apresentadas são baseadas em pesquisa de mercado e experiência prática do setor. Resultados podem variar conforme aplicação e características de cada condomínio.
-</p> </div> <div> <h4 class="font-display text-base font-extrabold text-white mb-4 tracking-wide">Links</h4> <ul class="space-y-2 text-sm"> <li><a href="#metodo" class="hover:text-orange-400 transition-colors">Os 4 pilares</a></li> <li><a href="#oferta" class="hover:text-orange-400 transition-colors">Preço e oferta</a></li> <li><a href="#faq" class="hover:text-orange-400 transition-colors">Perguntas frequentes</a></li> <li><a href="mailto:anderson@facilitadistribuidora.com" class="hover:text-orange-400 transition-colors">Suporte por e-mail</a></li> </ul> </div> <div> <h4 class="font-display text-base font-extrabold text-white mb-4 tracking-wide">Contato</h4> <ul class="space-y-2 text-sm"> <li><a href="mailto:anderson@facilitadistribuidora.com" class="hover:text-orange-400 transition-colors">E-mail: anderson@facilitadistribuidora.com</a></li> <li><a href="mailto:anderson@facilitadistribuidora.com" class="hover:text-orange-400 transition-colors break-all">anderson@facilitadistribuidora.com</a></li> <li>Hotmart · Plataforma de pagamento</li> </ul> </div> </div> <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row gap-3 md:gap-0 justify-between items-center text-xs text-slate-500"> <p>© 2026 Facilita Distribuidora · Síndico Inteligente · Edição 2026</p> <p>Pagamento seguro processado pela Hotmart</p> </div> </div> </footer>`;
+const PRECO = 'R$ 67';
+const ANCORA = 'R$ 197';
+const CHECKOUT = 'https://pay.hotmart.com/C105540565G?checkoutMode=2';
 ---
 
 <Layout
-  title="Síndico Inteligente — Seu condomínio realmente está seguro? | De R$ 197 por R$ 67"
-  description="Em 15 minutos você descobre os 5 erros que destroem a segurança eletrônica do seu condomínio — e o método em 4 pilares para corrigir já. Cartilha + Checklist + Comunidade VIP por R$ 67."
+  title="Síndico Inteligente — Seu condomínio está realmente seguro? | R$ 67"
+  description="Em 15 minutos você descobre os 5 erros que destroem a segurança eletrônica do seu condomínio — e o método em 4 pilares pra corrigir sem cair em cilada de fornecedor. Cartilha + Checklist + Modelos LGPD por R$ 67."
 >
-  <Fragment set:html={mainHtml} />
-  <Fragment set:html={footerHtml} />
+  <main class="overflow-x-hidden">
+    <!-- BLOCO 1 · HERO -->
+    <section class="relative bg-gradient-to-b from-sky-50 via-white to-sky-50">
+      <div class="pointer-events-none absolute inset-0 opacity-40">
+        <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-sky-300 blur-3xl"></div>
+        <div class="absolute bottom-0 -left-24 h-80 w-80 rounded-full bg-orange-200 blur-3xl"></div>
+      </div>
+      <div class="relative mx-auto max-w-6xl px-5 pb-12 pt-8 sm:pt-12 lg:pb-20 lg:pt-16">
+        <div class="mb-5 flex justify-center px-2">
+          <p class="inline-flex items-center gap-2 rounded-full border-2 border-orange-200 bg-white px-4 py-1.5 text-center text-xs font-bold uppercase tracking-wider text-orange-600 shadow-sm sm:text-sm">
+            <span>🛡️</span> Guia prático · edição 2026
+          </p>
+        </div>
+        <h1 class="mx-auto max-w-4xl text-center font-display text-[30px] font-extrabold leading-[1.08] text-slate-900 sm:text-5xl lg:text-6xl">
+          Seu condomínio está <span class="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">realmente seguro</span> — ou só parece?
+        </h1>
+        <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-slate-600 sm:text-xl">
+          <strong class="text-slate-900">62% das câmeras</strong> em condomínios estão com defeito não detectado. <strong class="text-slate-900">7 em cada 10 prédios</strong> têm tags de ex-moradores ativas. Em <strong class="text-orange-600">15 minutos de leitura</strong> você descobre onde o seu está vulnerável — e como corrigir <strong class="text-slate-900">sem cair em cilada de fornecedor</strong>.
+        </p>
+        <div class="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-slate-500 sm:text-sm">
+          <span class="inline-flex items-center gap-1.5"><span class="text-emerald-500">✓</span>Acesso imediato</span>
+          <span class="inline-flex items-center gap-1.5"><span class="text-emerald-500">✓</span>Pagamento único, sem mensalidade</span>
+          <span class="inline-flex items-center gap-1.5"><span class="text-emerald-500">✓</span>15 min de leitura</span>
+        </div>
+        <div class="relative mx-auto mt-12 max-w-sm sm:mt-14">
+          <div class="absolute -inset-6 rounded-full bg-gradient-to-br from-sky-300 via-orange-200 to-emerald-200 opacity-60 blur-3xl"></div>
+          <div class="relative rotate-[-3deg] overflow-hidden rounded-2xl border border-sky-400/30 bg-gradient-to-br from-sky-700 via-sky-600 to-sky-800 p-8 shadow-2xl transition-transform hover:rotate-0 sm:p-10">
+            <div class="absolute left-4 top-6 h-[calc(100%-3rem)] w-1 rounded-full bg-orange-400"></div>
+            <div class="ml-3">
+              <div class="text-[11px] font-bold uppercase tracking-[3px] text-orange-300">Guia prático</div>
+              <h3 class="mt-3 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl">Síndico<br />Inteligente</h3>
+              <div class="my-4 h-0.5 w-12 bg-orange-400"></div>
+              <p class="text-sm font-semibold uppercase tracking-wider text-orange-200">// Segurança eletrônica</p>
+              <p class="mt-3 text-sm leading-relaxed text-sky-100">Como diagnosticar, modernizar e proteger seu condomínio em 15 minutos de leitura.</p>
+              <div class="mt-6 flex flex-wrap gap-3 text-[10px] font-semibold uppercase tracking-wider text-sky-200 sm:text-xs">
+                <span>· CFTV</span><span>· Acesso</span><span>· Garagem</span><span>· LGPD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 flex flex-col items-center gap-1 text-slate-400">
+          <span class="text-xs font-semibold uppercase tracking-widest">Veja como funciona</span>
+          <svg class="h-6 w-6 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 2 · DEPOIMENTOS — removido: sem prova social com lastro (regra Maxxima). -->
+
+    <!-- BLOCO 3 · DOR LATENTE (ruminação) -->
+    <section class="bg-white py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-5">
+        <h2 class="text-center font-display text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+          O problema não é falta de câmera. <span class="text-red-600">É não saber se ela protege de verdade.</span>
+        </h2>
+        <p class="mx-auto mt-3 max-w-xl text-center text-base text-slate-600 sm:text-lg">
+          Se um desses pensamentos já passou pela sua cabeça, esta página é pra você.
+        </p>
+        <div class="mt-9 space-y-4">
+          {[
+            'Aprovei a instalação das câmeras, mas se acontecer alguma coisa hoje, eu não tenho certeza se aquilo está gravando de verdade.',
+            'Toda vez que assaltam alguém no bairro eu penso: e se for aqui? As imagens iam servir pra alguma coisa ou ia dar tela preta?',
+            'Tem chave e tag de gente que mudou faz tempo. No papel o sistema "controla" — na prática, eu não sei quem ainda consegue entrar.',
+            'A garagem me tira o sono. Basta um carro colar no outro e entra qualquer um — e a responsabilidade vai sobrar pra mim.',
+            'Me falaram de LGPD e multa, mas ninguém me explicou o que eu, como síndico, preciso ter no papel pra não responder pessoalmente.',
+          ].map((t) => (
+            <div class="flex items-start gap-2.5">
+              <div class="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">💭</div>
+              <div class="max-w-xl rounded-xl rounded-tl-sm bg-slate-50 px-4 py-2.5 text-slate-800 shadow-sm">{t}</div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {[
+            { n: '62%', d: 'das câmeras em condomínios estão com defeito não detectado' },
+            { n: '7 em 10', d: 'prédios têm tags e chaves de ex-moradores ainda ativas' },
+            { n: 'até R$ 50 mi', d: 'é a multa da LGPD — e a responsabilidade recai sobre o síndico' },
+          ].map((s) => (
+            <div class="rounded-2xl bg-red-50 p-5 text-center ring-1 ring-red-100">
+              <div class="font-display text-2xl font-extrabold text-red-600 sm:text-3xl">{s.n}</div>
+              <div class="mt-1 text-sm text-red-900/70">{s.d}</div>
+            </div>
+          ))}
+        </div>
+        <p class="mx-auto mt-8 max-w-2xl text-center font-display text-xl font-extrabold text-slate-900 sm:text-2xl">
+          Câmera ligada não é segurança. <span class="text-red-600">É expectativa.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOCO 4 · TRANSIÇÃO — 4 pilares -->
+    <section id="metodo" class="bg-gradient-to-b from-sky-50 via-sky-50/40 to-white py-14 sm:py-20">
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="inline-block rounded-full bg-sky-500/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-sky-700">A virada</span>
+          <h2 class="mt-4 font-display text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+            E se em 15 minutos você soubesse <span class="bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">exatamente onde seu condomínio está vulnerável?</span>
+          </h2>
+          <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-700 sm:text-lg">
+            Esqueça "kit de câmeras". A segurança que <strong class="text-slate-900">realmente protege</strong> se sustenta sobre <strong class="text-slate-900">4 pilares integrados</strong> — e a cartilha te dá o checklist objetivo de cada um.
+          </p>
+        </div>
+        <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: '📹', title: 'CFTV que grava', sub: 'pilar 01', desc: 'Câmera só vale o que a gravação entrega. O checklist do que pedir, o que evitar e como confirmar que está protegendo de verdade.' },
+            { icon: '🔑', title: 'Controle de acesso', sub: 'pilar 02', desc: 'Qual tecnologia faz sentido pro seu cenário — e quais combinações são só desperdício de dinheiro e dor de cabeça.' },
+            { icon: '🚗', title: 'Garagem blindada', sub: 'pilar 03', desc: 'O ponto mais vulnerável tem uma sequência de camadas que precisam estar no lugar. A receita certa — e na ordem certa.' },
+            { icon: '🔗', title: 'Integração mínima', sub: 'pilar 04', desc: 'O mínimo de integração que muda o nível de segurança — sem precisar trocar tudo o que já está instalado.' },
+          ].map((s) => (
+            <div class="relative overflow-hidden rounded-2xl border border-sky-100 bg-white p-6 shadow-sm">
+              <div class="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-sky-400 to-sky-700 opacity-10"></div>
+              <div class="relative flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-3xl">{s.icon}</div>
+              <p class="mt-4 text-xs font-semibold uppercase tracking-wide text-sky-600">{s.sub}</p>
+              <h3 class="mt-1 font-display text-lg font-extrabold text-slate-900">{s.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-700">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-9 text-center">
+          <p class="inline-flex items-center gap-2 rounded-full border border-orange-400/40 bg-orange-400/15 px-5 py-3 font-display text-sm font-bold text-slate-900 sm:text-base">
+            <span class="text-orange-500">✓</span> Em 15 minutos você sai com um diagnóstico claro dos 4 pilares do seu condomínio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 5 · AGORA VOCÊ VAI -->
+    <section class="bg-white py-14 sm:py-20">
+      <div class="mx-auto max-w-4xl px-5">
+        <h2 class="text-center font-display text-2xl font-extrabold text-slate-900 sm:text-4xl">Com o Síndico Inteligente, você vai:</h2>
+        <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {[
+            { i: '📹', t: 'Saber se suas câmeras gravam mesmo', d: 'A rotina simples que revela em minutos se o sistema está protegendo ou só piscando a luzinha.' },
+            { i: '🔑', t: 'Eliminar tags e chaves fantasma', d: 'Qual tipo de credencial acaba de vez com o ex-morador que ainda entra no prédio.' },
+            { i: '🚗', t: 'Blindar a garagem', d: 'As 4 camadas que fecham o ponto por onde começam 60% das invasões — e em que ordem corrigir.' },
+            { i: '⚖️', t: 'Ficar em dia com a LGPD', d: 'Os 3 documentos que protegem a sua gestão e tiram a responsabilidade pessoal das suas costas.' },
+            { i: '🎯', t: 'Decidir orçamento com critério', d: 'Pare de comprar no escuro: o que vale o investimento e o que é fornecedor te empurrando.' },
+            { i: '💰', t: 'Economizar comprando do jeito certo', d: 'Como modernizar sem gastar a mais — sabendo exatamente o que pedir.' },
+          ].map((c) => (
+            <div class="flex items-start gap-4 rounded-2xl bg-sky-50 p-5">
+              <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white text-2xl shadow-sm">{c.i}</div>
+              <div><div class="font-display text-lg font-extrabold text-slate-900">{c.t}</div><div class="mt-1 text-sm text-slate-600">{c.d}</div></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 6 · TUDO QUE RECEBE + BÔNUS -->
+    <section class="bg-gradient-to-br from-sky-800 via-sky-700 to-sky-900 py-14 text-white sm:py-20">
+      <div class="mx-auto max-w-3xl px-5">
+        <h2 class="text-center font-display text-2xl font-extrabold sm:text-4xl">Tudo que você leva</h2>
+        <p class="mx-auto mt-3 max-w-xl text-center text-base text-sky-100 sm:text-lg">Um pacote prático pra sair do escuro e proteger seu condomínio com critério.</p>
+        <div class="mx-auto mt-9 max-w-2xl space-y-3">
+          {[
+            { i: '📘', t: 'Cartilha Síndico Inteligente (15 págs)', d: 'os 5 erros que destroem a segurança + o método dos 4 pilares, em linguagem direta' },
+            { i: '✅', t: 'Checklist de diagnóstico', d: 'o que pedir, o que evitar e como confirmar cada pilar — pra usar na próxima reunião com fornecedor' },
+            { i: '⚖️', t: 'Modelos de documentos LGPD', d: 'os 3 documentos que protegem a gestão do síndico (e que ninguém te avisou que existiam)' },
+          ].map((it) => (
+            <div class="flex items-center gap-4 rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white/15 text-xl">{it.i}</span>
+              <div class="flex-1"><div class="font-bold">{it.t}</div><div class="text-sm text-sky-100">{it.d}</div></div>
+            </div>
+          ))}
+          <div class="pt-2 text-center text-xs font-bold uppercase tracking-widest text-orange-300">+ Bônus exclusivo</div>
+          <div class="flex items-center gap-4 rounded-2xl bg-orange-400/15 p-4 ring-1 ring-orange-400/25">
+            <span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-orange-400 text-xl">💬</span>
+            <div class="flex-1"><div class="font-bold">Bônus: Comunidade VIP de Síndicos</div><div class="text-sm text-sky-100">tire dúvida sobre o método e troque ideia com outros síndicos — o link chega no seu e-mail</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 7 · PARA QUEM SERVE -->
+    <section class="bg-white py-14 sm:py-20">
+      <div class="mx-auto max-w-5xl px-5">
+        <h2 class="text-center font-display text-2xl font-extrabold text-slate-900 sm:text-4xl">Isso é pra você?</h2>
+        <div class="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div class="rounded-2xl border-2 border-emerald-500/30 bg-emerald-50/60 p-6">
+            <div class="mb-4 flex items-center gap-2 font-display text-lg font-extrabold text-emerald-800"><span class="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-white">✓</span>É pra você se…</div>
+            <ul class="space-y-2.5 text-slate-800">
+              {[
+                'É síndico (profissional ou morador), gestor predial, zelador ou de administradora',
+                'Tem câmera e portaria, mas não sabe se realmente protegem',
+                'Quer decidir orçamento de segurança com critério, não no chute',
+                'Quer se proteger da responsabilidade pessoal (LGPD)',
+                'Tem 15 minutos e não quer virar técnico de segurança',
+              ].map((t) => (
+                <li class="flex items-start gap-2.5"><span class="mt-0.5 text-emerald-600">✓</span><span>{t}</span></li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-2xl border-2 border-red-200 bg-red-50 p-6">
+            <div class="mb-4 flex items-center gap-2 font-display text-lg font-extrabold text-red-700"><span class="flex h-7 w-7 items-center justify-center rounded-full bg-red-500 text-white">✕</span>Não é pra você se…</div>
+            <ul class="space-y-2.5 text-red-900/80">
+              {[
+                'Procura um manual técnico pra instalar fiação você mesmo',
+                'Quer um "kit mágico" sem entender o que está comprando',
+                'Acha que segurança é só "ter câmera ligada"',
+                'Não se importa com a responsabilidade legal da gestão',
+                'Não tem 15 minutos pra cuidar da segurança de quem mora aí',
+              ].map((t) => (
+                <li class="flex items-start gap-2.5"><span class="mt-0.5 text-red-500">✕</span><span>{t}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 8 · ANCORAGEM -->
+    <section class="bg-gradient-to-b from-sky-50 via-sky-50/40 to-white py-14 sm:py-20">
+      <div class="mx-auto max-w-2xl px-5">
+        <p class="text-center text-xs font-bold uppercase tracking-widest text-sky-700">Recapitulando, tudo que você recebe</p>
+        <div class="mt-6 rounded-3xl bg-white p-7 shadow-sm ring-1 ring-sky-500/10 sm:p-9">
+          <ul class="space-y-3">
+            {[
+              { t: 'Cartilha Síndico Inteligente (15 págs)', v: 'R$ 97' },
+              { t: 'Checklist de diagnóstico dos 4 pilares', v: 'R$ 57' },
+              { t: 'Modelos de documentos LGPD', v: 'R$ 67' },
+            ].map((it) => (
+              <li class="flex items-center justify-between gap-3 border-b border-sky-500/10 pb-3 text-slate-900">
+                <span class="flex items-center gap-2.5"><span class="text-emerald-500">✓</span>{it.t}</span>
+                <span class="text-sm text-slate-400 line-through">{it.v}</span>
+              </li>
+            ))}
+            <li class="flex items-center justify-between gap-3 pb-1 text-slate-900">
+              <span class="flex items-center gap-2.5"><span class="text-orange-500">★</span>Bônus: Comunidade VIP de Síndicos</span>
+              <span class="text-xs font-bold uppercase tracking-wide text-emerald-600">Grátis</span>
+            </li>
+          </ul>
+          <p class="mt-6 text-center font-display text-xl font-extrabold text-slate-900 sm:text-2xl">
+            Tudo isso deveria custar <span class="text-red-600 line-through">{ANCORA}</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 9 · BOTÃO DE COMPRA #1 -->
+    <section id="oferta" class="bg-white py-14 sm:py-20">
+      <div class="mx-auto max-w-2xl px-5">
+        <div class="text-center">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-sky-700">Mas hoje, com tudo junto, por apenas</span>
+        </div>
+        <div class="relative mt-6 rounded-3xl border-4 border-orange-400 bg-gradient-to-br from-white to-orange-50/50 p-7 shadow-2xl sm:p-9">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-orange-500 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg">Acesso imediato</div>
+          <div class="mb-6 mt-2 text-center">
+            <div class="text-sm text-slate-500">De <span class="line-through">{ANCORA}</span> por:</div>
+            <div class="mt-1 flex items-baseline justify-center gap-1">
+              <span class="font-display text-2xl font-bold text-orange-600 sm:text-3xl">R$</span>
+              <span class="font-display text-6xl font-extrabold leading-none text-orange-600 sm:text-7xl">67</span>
+            </div>
+            <div class="mt-2 text-base font-bold text-slate-600">à vista no PIX <span class="font-normal text-slate-400">ou em até</span> 12x de R$ 6,90</div>
+          </div>
+          <a href={CHECKOUT} data-cta="checkout" class="group flex w-full items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-700 px-6 py-4 font-display text-base font-extrabold uppercase tracking-wide text-white shadow-lg shadow-orange-500/30 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl sm:px-8 sm:py-5 sm:text-lg">
+            Quero proteger meu condomínio
+            <svg class="h-5 w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <p class="mt-3 text-center text-xs font-semibold text-slate-500">Pagamento único · Acesso imediato</p>
+          <div class="mt-5 flex items-center justify-center gap-2 text-center text-xs font-semibold text-orange-600">🔥 Preço de lançamento — pode subir a qualquer momento</div>
+        </div>
+        <div class="mt-6 text-center">
+          <div class="mb-2 text-xs font-bold uppercase tracking-widest text-slate-400">Formas de pagamento</div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <span class="rounded-lg border border-slate-100 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-800">Pix</span>
+            <span class="rounded-lg border border-slate-100 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-800">Cartão (até 12x)</span>
+            <span class="rounded-lg border border-slate-100 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-800">Boleto</span>
+            <span class="rounded-lg border border-emerald-100 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">🔒 Checkout Hotmart</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 10 · CONVERSA SÉRIA -->
+    <section class="bg-slate-900 py-14 text-white sm:py-20">
+      <div class="mx-auto max-w-3xl px-5">
+        <h2 class="text-center font-display text-2xl font-extrabold sm:text-4xl">Agora você tem duas opções</h2>
+        <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-red-900/30 p-6 ring-1 ring-white/10">
+            <div class="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-red-300"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-white">✕</span>Opção 1</div>
+            <p class="text-slate-200">Continuar no escuro, torcendo pra não acontecer nada. Aprovando orçamento no chute e descobrindo a falha só no dia em que precisar da imagem — e ela não estiver lá.</p>
+          </div>
+          <div class="rounded-2xl bg-emerald-500/15 p-6 ring-1 ring-emerald-400/30">
+            <div class="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-emerald-300"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white">✓</span>Opção 2</div>
+            <p class="text-white">Investir <strong>{PRECO}</strong> e, em 15 minutos, saber exatamente onde seu condomínio está vulnerável — e o que corrigir primeiro, com critério.</p>
+          </div>
+        </div>
+        <p class="mx-auto mt-7 max-w-xl text-center text-base text-slate-200 sm:text-lg">
+          Você sabe qual é a mais inteligente. <strong class="text-white">A opção 2 custa menos que uma diária de porteiro.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOCO 11 · AUTORIDADE -->
+    <section class="bg-white py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-5">
+        <div class="grid grid-cols-1 items-center gap-8 sm:grid-cols-[auto_1fr]">
+          <div class="mx-auto sm:mx-0">
+            <div class="relative">
+              <div class="absolute inset-0 rounded-full bg-gradient-to-br from-sky-500 to-orange-400 opacity-40 blur-xl"></div>
+              <div class="relative flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-sky-800 to-sky-600 shadow-xl sm:h-36 sm:w-36">
+                <span class="font-display text-4xl font-extrabold text-orange-300 sm:text-5xl">AC</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-center sm:text-left">
+            <span class="inline-block rounded-full bg-sky-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-sky-700">Quem está por trás</span>
+            <h2 class="mt-3 font-display text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+              Não é teoria de fornecedor. É quem <span class="bg-gradient-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">vive a segurança eletrônica por dentro.</span>
+            </h2>
+            <p class="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+              Sou o <strong class="text-slate-900">Anderson Cruz</strong>, da <strong class="text-slate-900">Facilita Distribuidora</strong> — segurança eletrônica. Já vi de tudo: condomínio gastando rios de dinheiro e continuando vulnerável, e síndico resolvendo o essencial gastando pouco. A diferença nunca foi o tamanho do orçamento — foi saber onde investir. Reuni isso num guia direto, sem economês e sem fornecedor te empurrando equipamento.
+            </p>
+          </div>
+        </div>
+        <div class="mt-9 grid grid-cols-3 gap-3">
+          {[
+            { i: '🛡️', t: 'Sem cilada de fornecedor' },
+            { i: '📲', t: 'Pagamento único' },
+            { i: '⏱️', t: '15 min de leitura' },
+          ].map((b) => (
+            <div class="rounded-2xl bg-sky-50 p-4 text-center ring-1 ring-black/5">
+              <div class="text-2xl">{b.i}</div>
+              <div class="mt-1.5 text-sm font-bold text-slate-900">{b.t}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 12 · BOTÃO DE COMPRA #2 -->
+    <section class="bg-gradient-to-br from-sky-800 via-sky-700 to-sky-900 py-16 text-white sm:py-24">
+      <div class="mx-auto max-w-2xl px-5 text-center">
+        <h2 class="font-display text-3xl font-extrabold leading-tight sm:text-5xl">Pare de torcer. <span class="text-orange-300">Proteja seu condomínio.</span></h2>
+        <p class="mx-auto mt-5 max-w-xl text-base text-sky-100 sm:text-lg">
+          Em 15 minutos você sabe onde seu condomínio está vulnerável e o que corrigir primeiro. De <span class="line-through">{ANCORA}</span> por <strong class="text-orange-300">{PRECO}</strong> à vista (ou 12x de R$ 6,90). Acesso imediato, 100% online.
+        </p>
+        <div class="mx-auto mt-9 max-w-md">
+          <a href={CHECKOUT} data-cta="checkout" class="group flex w-full items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-700 px-6 py-4 font-display text-base font-extrabold uppercase tracking-wide text-white shadow-lg shadow-orange-900/40 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl sm:px-8 sm:py-5 sm:text-lg">
+            Quero meu exemplar por R$ 67
+            <svg class="h-5 w-5 flex-shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <p class="mt-3 text-center text-xs font-semibold text-sky-200">Pagamento único · Acesso imediato</p>
+        </div>
+        <p class="mx-auto mt-8 max-w-xl rounded-2xl bg-white/5 p-4 text-sm text-sky-100 ring-1 ring-white/10">
+          <strong class="text-white">P.S.</strong> Cada mês sem diagnóstico é mais um mês torcendo pra não precisar das câmeras. Por {PRECO}, você começa hoje e em 15 minutos já sabe onde agir.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOCO 13 · FAQ -->
+    <section id="faq" class="bg-white py-14 sm:py-20">
+      <div class="mx-auto max-w-3xl px-5">
+        <h2 class="text-center font-display text-2xl font-extrabold text-slate-900 sm:text-3xl">Perguntas frequentes</h2>
+        <div class="mt-8 space-y-3">
+          {[
+            { q: 'Preciso entender de tecnologia?', a: 'Não. A cartilha é em linguagem direta, pra síndico — não pra técnico. Você aprende o que cobrar e o que evitar, sem jargão. Se já usa o WhatsApp no celular, consegue aplicar.' },
+            { q: 'Serve pro meu tipo de condomínio?', a: 'Sim. Os 4 pilares valem pra prédio, condomínio horizontal, comercial ou misto — pequeno ou grande. O que muda é a escala; o critério de decisão é o mesmo.' },
+            { q: 'Vou precisar trocar tudo o que já tenho?', a: 'Não. Boa parte do ganho vem de ajustar e integrar o que já está instalado. A cartilha mostra o mínimo que muda o jogo antes de você gastar com equipamento novo.' },
+            { q: 'Como recebo o material?', a: 'Direto no seu e-mail, logo após a confirmação do pagamento (em geral, menos de 2 minutos). Cartilha, checklist e modelos pra baixar quando quiser.' },
+            { q: 'Tem mensalidade?', a: 'Não. É pagamento único. Você paga R$ 67 uma vez só (à vista ou em até 12x) e o material fica seu pra sempre.' },
+            { q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia. É só pedir o reembolso nesse período pela Hotmart e devolvemos 100% do valor — sem pergunta, sem burocracia.' },
+          ].map((f) => (
+            <details class="group rounded-2xl border border-sky-500/15 bg-white p-5 [&_summary::-webkit-details-marker]:hidden">
+              <summary class="flex cursor-pointer items-center justify-between gap-3 font-bold text-slate-900">{f.q}<span class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-sky-500/15 text-sky-700 transition-transform group-open:rotate-45">+</span></summary>
+              <p class="mt-3 text-slate-600">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 14 · RODAPÉ -->
+    <footer class="bg-slate-950 py-10 text-center text-sm text-slate-300">
+      <div class="mx-auto max-w-3xl px-5">
+        <div class="mb-4 font-display text-base font-bold text-white">
+          <span class="text-orange-400">Síndico Inteligente</span> · Segurança eletrônica · Edição 2026
+        </div>
+        <p class="mx-auto max-w-2xl text-xs leading-relaxed text-slate-400">
+          Material educativo independente (cartilha, checklist e modelos), por Anderson Cruz · Facilita Distribuidora. <strong>Não</strong> é afiliado, patrocinado ou endossado pela Meta/Facebook. As informações são baseadas em pesquisa de mercado e prática do setor — os resultados variam conforme a aplicação e as características de cada condomínio.
+        </p>
+        <p class="mt-4 text-xs text-slate-500">© 2026 · Facilita Distribuidora · Todos os direitos reservados</p>
+      </div>
+    </footer>
+  </main>
 </Layout>
